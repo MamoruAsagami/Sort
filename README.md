@@ -2,7 +2,7 @@
 Sort is a Unix, Linux, Posix and GNU compatible sort program that runs in Java virtual machine. In addition to command line mode, it has GUI mode.
 
 ## 1 How to run
-1. From command line shell, type java -jar Sort.jar [argument]
+1. From command line shell, type java -jar Sort.jar [arguments]
 2. From GUI shell, double-click Sort.jar icon. 
 
 It runs in GUI mode if no arguments are specified.
