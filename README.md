@@ -84,9 +84,40 @@ SIZE may be followed by the following multiplicative suffixes:
 The standard options are described in detail, for example, at https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html.
 In additon to the standard options, the following options are availeble.
 
- Option   | arguments | Description
+ Option   | Arguments | Description
 ----------|-----------|-------------
 \--cli     |        -                   |Forces to run in CLI mode. Use it when there are no other options to specifiy.
 \--encoding |in-charset [, out-charset]  |Input and output encodings. Specify only one when they are the same.
 \--header  |n [, every&#124;first]        |The number of header lines of every or first file.
 \--locale  |text-locale [, number-locale]|Text and number locales. Specify only one when they are the same. Text-locale is used for collation and number-locale is used to decide number format.
+
+## 3 GUI main window
+ Element  | Description
+----------|-------------
+In file   | Input file.  Use the button to pop up a file browser.  You can drop a file icon into the text field, as well.
+Out file  | Output file.  Use the button to pop up a file browser.  You can drop a file icon into the text field, as well.
+Encoding.Input  | Input file encoding. Automatic means to use heuristic logic to decide the file encoding. Default means the system default file encoding.
+Encoding.Output | Output file encoding. Automatic means to use the same encoding as input. Default means the system default file encoding.
+Locale.Text   | Text locale to decide text collation.
+Locale.Number | Number locale to decide number format (decimal point and thousand separator).
+Field separator | A character to separate fields.  Default means zero-length string between non-blank character and blank character. \t for tab code.
+Stable | To specify stable sort option.
+Unique | To specify unique option which eliminates output lines of the same key values.
+Header | The number of header lines.  The header is copied from input to output not sorting.
+Buffer size | Internal sort buffer size
+Start Field # | Field number where th key starts.  BOL means the beginning of line.
+Start Char #  | Character position of the field where the key starts.  Blank means the beginning of the field.
+Start Skip blanks  | Specifies to skip blanks to find the key position.
+End Field # | Field number where th key ends.  EOL means the end of line.
+End Char #  | Character position of the field where the key ends. Blank means the end of the field.
+End Skip blanks  | Specifies to skip blanks to find the end of key position.
+Sort Kind | Comparison method
+Ignore    | Ignore filter
+Translate | Translate filter
+Reverse   | Reverses the comparison to make it descending sort.
+Add       | Adds a new key
+Remove    | Removes the key
+Up        | Move up the key
+Down      | Move down the key
+Sort      | Starts sorting
+
