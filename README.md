@@ -82,7 +82,7 @@ SIZE may be followed by the following multiplicative suffixes:
 
 ```
 The standard options are described in detail, for example, at https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html.
-In additon to the standard options, the following options are availeble.
+In additon to the standard options, the following options are available.
 
  Option   | Arguments | Description
 ----------|-----------|-------------
