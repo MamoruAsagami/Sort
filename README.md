@@ -117,7 +117,7 @@ Translate | Translate filter
 Reverse   | Reverses the comparison to make it descending sort.
 Add       | Adds a new key
 Remove    | Removes the key
-Up        | Move up the key
-Down      | Move down the key
+Up        | Moves up the key
+Down      | Moves down the key
 Sort      | Starts sorting
 
