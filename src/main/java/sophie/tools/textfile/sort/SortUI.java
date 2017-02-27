@@ -53,7 +53,6 @@ public class SortUI extends JPanel {
 	private static final String NONE = "None";
 	private static final String BOL = "BOL"; // Beginning of line
 	private static final String EOL = "EOL"; // End of line
-	private SortedMap<String, Charset> charsetMap = Charset.availableCharsets();
 	private JFileTextField inputFileTextField;
 	private JFileTextField outputFileTextField;
 	private JComboBox<Object> inputEncodingComboBox;
@@ -569,6 +568,7 @@ public class SortUI extends JPanel {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         northPanel.add(new JLabel("Input", JLabel.RIGHT), gbc);
         gbc.gridx++;
+    	SortedMap<String, Charset> charsetMap = Charset.availableCharsets();
         ArrayList<Object> inCharsetList = new ArrayList<Object>();
         inCharsetList.add(AUTOMATIC);
         inCharsetList.add(DEFAULT);

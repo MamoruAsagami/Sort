@@ -3,12 +3,12 @@ package sophie.tools.textfile.sort;
 import java.nio.charset.Charset;
 import java.util.Locale;
 
-class Configuration {
+public class Configuration {
 	String[] inputFileNames;	// null means standard in
 	String outputFileName;	// null means standard out
 	Charset inputEncoding = Charset.defaultCharset();
 	Charset outputEncoding = Charset.defaultCharset();
-	KeyField[] keyFields;
+	KeyField[] keyFields = new KeyField[0];
 	ProcessKind processKind = ProcessKind.Sort;
 	CheckKind checkKind;
 	int headerLines;
@@ -32,10 +32,226 @@ class Configuration {
 	boolean globalKeyOnly;
 	boolean hasRandom;
 	
-	Configuration() {
+	public Configuration() {
 	}
 	
-	void print(IndentedReporter out) {
+	public String[] getInputFileNames() {
+		return inputFileNames;
+	}
+
+	public void setInputFileNames(String[] inputFileNames) {
+		this.inputFileNames = inputFileNames;
+	}
+
+	public String getOutputFileName() {
+		return outputFileName;
+	}
+
+	public void setOutputFileName(String outputFileName) {
+		this.outputFileName = outputFileName;
+	}
+
+	public Charset getInputEncoding() {
+		return inputEncoding;
+	}
+
+	public void setInputEncoding(Charset inputEncoding) {
+		this.inputEncoding = inputEncoding;
+	}
+
+	public Charset getOutputEncoding() {
+		return outputEncoding;
+	}
+
+	public void setOutputEncoding(Charset outputEncoding) {
+		this.outputEncoding = outputEncoding;
+	}
+
+	public KeyField[] getKeyFields() {
+		return keyFields;
+	}
+
+	public void setKeyFields(KeyField[] keyFields) {
+		this.keyFields = keyFields;
+	}
+
+	public ProcessKind getProcessKind() {
+		return processKind;
+	}
+
+	public void setProcessKind(ProcessKind processKind) {
+		this.processKind = processKind;
+	}
+
+	public CheckKind getCheckKind() {
+		return checkKind;
+	}
+
+	public void setCheckKind(CheckKind checkKind) {
+		this.checkKind = checkKind;
+	}
+
+	public int getHeaderLines() {
+		return headerLines;
+	}
+
+	public void setHeaderLines(int headerLines) {
+		this.headerLines = headerLines;
+	}
+
+	public boolean isHeaderEveryFile() {
+		return headerEveryFile;
+	}
+
+	public void setHeaderEveryFile(boolean headerEveryFile) {
+		this.headerEveryFile = headerEveryFile;
+	}
+
+	public String getCompressProgram() {
+		return compressProgram;
+	}
+
+	public void setCompressProgram(String compressProgram) {
+		this.compressProgram = compressProgram;
+	}
+
+	public boolean isDebug() {
+		return debug;
+	}
+
+	public void setDebug(boolean debug) {
+		this.debug = debug;
+	}
+
+	public int getMergeBatchSize() {
+		return mergeBatchSize;
+	}
+
+	public void setMergeBatchSize(int mergeBatchSize) {
+		this.mergeBatchSize = mergeBatchSize;
+	}
+
+	public String getRandomSource() {
+		return randomSource;
+	}
+
+	public void setRandomSource(String randomSource) {
+		this.randomSource = randomSource;
+	}
+
+	public boolean isStable() {
+		return stable;
+	}
+
+	public void setStable(boolean stable) {
+		this.stable = stable;
+	}
+
+	public boolean isUnique() {
+		return unique;
+	}
+
+	public void setUnique(boolean unique) {
+		this.unique = unique;
+	}
+
+	public int getBufferSize() {
+		return bufferSize;
+	}
+
+	public void setBufferSize(int bufferSize) {
+		this.bufferSize = bufferSize;
+	}
+
+	public String getBufferSizeSuffix() {
+		return bufferSizeSuffix;
+	}
+
+	public void setBufferSizeSuffix(String bufferSizeSuffix) {
+		this.bufferSizeSuffix = bufferSizeSuffix;
+	}
+
+	public boolean isDefaultFieldSeparator() {
+		return defaultFieldSeparator;
+	}
+
+	public void setDefaultFieldSeparator(boolean defaultFieldSeparator) {
+		this.defaultFieldSeparator = defaultFieldSeparator;
+	}
+
+	public char getFieldSeparator() {
+		return fieldSeparator;
+	}
+
+	public void setFieldSeparator(char fieldSeparator) {
+		this.fieldSeparator = fieldSeparator;
+	}
+
+	public String getTmpDirectory() {
+		return tmpDirectory;
+	}
+
+	public void setTmpDirectory(String tmpDirectory) {
+		this.tmpDirectory = tmpDirectory;
+	}
+
+	public int getNumberOfParallel() {
+		return numberOfParallel;
+	}
+
+	public void setNumberOfParallel(int numberOfParallel) {
+		this.numberOfParallel = numberOfParallel;
+	}
+
+	public boolean isZeroTerminated() {
+		return zeroTerminated;
+	}
+
+	public void setZeroTerminated(boolean zeroTerminated) {
+		this.zeroTerminated = zeroTerminated;
+	}
+
+	public Locale getTextLocale() {
+		return textLocale;
+	}
+
+	public void setTextLocale(Locale textLocale) {
+		this.textLocale = textLocale;
+	}
+
+	public Locale getNumberLocale() {
+		return numberLocale;
+	}
+
+	public void setNumberLocale(Locale numberLocale) {
+		this.numberLocale = numberLocale;
+	}
+
+	public boolean isReverse() {
+		return reverse;
+	}
+
+	public void setReverse(boolean reverse) {
+		this.reverse = reverse;
+	}
+
+	public boolean isGlobalKeyOnly() {
+		return globalKeyOnly;
+	}
+
+	public void setGlobalKeyOnly(boolean globalKeyOnly) {
+		this.globalKeyOnly = globalKeyOnly;
+	}
+
+	public boolean isHasRandom() {
+		return hasRandom;
+	}
+
+	public void setHasRandom(boolean hasRandom) {
+		this.hasRandom = hasRandom;
+	}
+
+	public void print(IndentedReporter out) {
 		out.println("Configuration {");
 		out.inc();
 		try {

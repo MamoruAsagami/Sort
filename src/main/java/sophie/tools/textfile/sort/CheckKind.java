@@ -1,5 +1,5 @@
 package sophie.tools.textfile.sort;
 
-enum CheckKind {
+public enum CheckKind {
 	DiagnoseFirst, Quiet, Silent
 }

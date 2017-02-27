@@ -1,5 +1,5 @@
 package sophie.tools.textfile.sort;
 
-enum SortKind {
+public enum SortKind {
 	Text, GeneralNumeric, HumanNumeric, Numeric, Month, Random, Version
 }

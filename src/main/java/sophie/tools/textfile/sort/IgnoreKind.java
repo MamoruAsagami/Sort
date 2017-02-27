@@ -1,5 +1,5 @@
 package sophie.tools.textfile.sort;
 
-enum IgnoreKind {
+public enum IgnoreKind {
 	NoDictionary, NoPrinting
 }

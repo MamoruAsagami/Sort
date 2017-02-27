@@ -1,5 +1,5 @@
 package sophie.tools.textfile.sort;
 
-enum TranslateKind {
+public enum TranslateKind {
 	ToUpper
 }

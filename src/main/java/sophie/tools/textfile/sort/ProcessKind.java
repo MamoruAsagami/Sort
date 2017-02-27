@@ -1,5 +1,5 @@
 package sophie.tools.textfile.sort;
 
-enum ProcessKind {
+public enum ProcessKind {
 	Sort, Merge, Check
 }

@@ -1,6 +1,6 @@
 package sophie.tools.textfile.sort;
 
-enum ExitStatus {
+public enum ExitStatus {
 	Success(0),
 	OutOfOrder(1),
 	Failure(2);

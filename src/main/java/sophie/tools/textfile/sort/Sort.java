@@ -31,7 +31,7 @@ import org.geirove.exmeso.CloseableIterator;
 
 
 public class Sort {
-	static final String VERSION = "1.0";
+	static final String VERSION = "1.0.1";
 	static final String TITLE = Sort.class.getSimpleName() + " " + VERSION;
 	static final boolean GNU_SORT_COMPATIBLE = false;
 	static final Options commandLineOptions;
@@ -271,7 +271,7 @@ public class Sort {
 		return (int)(bufferSize / 256);  // Assuming a line takes 256 bytes. 
 	}
 	
-	static void sort(Configuration configuration) throws IOException {
+	public static void sort(Configuration configuration) throws IOException {
 		TextLineComparator externalTextLineComparator = new TextLineComparator(configuration, false);
 		ExternalSerializer externalSerializer = new ExternalSerializer(configuration, externalTextLineComparator);
 		TextLineComparator internalTextLineComparator = new TextLineComparator(configuration, configuration.stable);
@@ -290,7 +290,7 @@ public class Sort {
 		sorted.close();
 	}
 	
-	static ExitStatus merge(Configuration configuration) throws IOException {
+	public static ExitStatus merge(Configuration configuration) throws IOException {
 		TextLineComparator externalTextLineComparator = new TextLineComparator(configuration, false);
 		ExternalSerializer externalSerializer = new ExternalSerializer(configuration, externalTextLineComparator);
 		ExternalTextFileIterator externalTextFileIterator = externalSerializer.externalTextFileIterator;
@@ -339,7 +339,7 @@ public class Sort {
 		return ExitStatus.Success;
 	}
 	
-	static ExitStatus check(Configuration configuration) throws IOException {
+	public static ExitStatus check(Configuration configuration) throws IOException {
 		TextLineComparator externalTextLineComparator = new TextLineComparator(configuration, false);
 		ExternalSerializer externalSerializer = new ExternalSerializer(configuration, externalTextLineComparator);
 		ExternalTextFileIterator externalTextFileIterator = externalSerializer.externalTextFileIterator;
