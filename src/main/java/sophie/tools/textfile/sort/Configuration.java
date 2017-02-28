@@ -8,7 +8,7 @@ public class Configuration {
 	String outputFileName;	// null means standard out
 	Charset inputEncoding = Charset.defaultCharset();
 	Charset outputEncoding = Charset.defaultCharset();
-	KeyField[] keyFields = new KeyField[0];
+	KeyField[] keyFields;
 	ProcessKind processKind = ProcessKind.Sort;
 	CheckKind checkKind;
 	int headerLines;
@@ -243,14 +243,6 @@ public class Configuration {
 		this.globalKeyOnly = globalKeyOnly;
 	}
 
-	public boolean isHasRandom() {
-		return hasRandom;
-	}
-
-	public void setHasRandom(boolean hasRandom) {
-		this.hasRandom = hasRandom;
-	}
-
 	public void print(IndentedReporter out) {
 		out.println("Configuration {");
 		out.inc();
@@ -320,5 +312,16 @@ public class Configuration {
 			out.dec();
 		}
 		out.println("}");
+	}
+	
+	void normalize() {
+		if(keyFields == null) {
+			keyFields = new KeyField[0];
+		}
+		for(KeyField keyField: keyFields) {
+			if(keyField.sortKind == SortKind.Random) {
+				hasRandom = true;
+			}
+		}
 	}
 }

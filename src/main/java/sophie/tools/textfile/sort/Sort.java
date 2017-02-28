@@ -31,7 +31,7 @@ import org.geirove.exmeso.CloseableIterator;
 
 
 public class Sort {
-	static final String VERSION = "1.0.1";
+	static final String VERSION = "1.0.2";
 	static final String TITLE = Sort.class.getSimpleName() + " " + VERSION;
 	static final boolean GNU_SORT_COMPATIBLE = false;
 	static final Options commandLineOptions;
@@ -272,6 +272,7 @@ public class Sort {
 	}
 	
 	public static void sort(Configuration configuration) throws IOException {
+		configuration.normalize();
 		TextLineComparator externalTextLineComparator = new TextLineComparator(configuration, false);
 		ExternalSerializer externalSerializer = new ExternalSerializer(configuration, externalTextLineComparator);
 		TextLineComparator internalTextLineComparator = new TextLineComparator(configuration, configuration.stable);
@@ -291,6 +292,7 @@ public class Sort {
 	}
 	
 	public static ExitStatus merge(Configuration configuration) throws IOException {
+		configuration.normalize();
 		TextLineComparator externalTextLineComparator = new TextLineComparator(configuration, false);
 		ExternalSerializer externalSerializer = new ExternalSerializer(configuration, externalTextLineComparator);
 		ExternalTextFileIterator externalTextFileIterator = externalSerializer.externalTextFileIterator;
@@ -340,6 +342,7 @@ public class Sort {
 	}
 	
 	public static ExitStatus check(Configuration configuration) throws IOException {
+		configuration.normalize();
 		TextLineComparator externalTextLineComparator = new TextLineComparator(configuration, false);
 		ExternalSerializer externalSerializer = new ExternalSerializer(configuration, externalTextLineComparator);
 		ExternalTextFileIterator externalTextFileIterator = externalSerializer.externalTextFileIterator;
@@ -892,14 +895,8 @@ public class Sort {
 			configuration.globalKeyOnly = true;
 			keyFieldList.add(globalKeyField);
 		}
-		for(KeyField keyField: keyFieldList) {
-			if(keyField.sortKind == SortKind.Random) {
-				configuration.hasRandom = true;
-			}
-		}
 		configuration.keyFields = keyFieldList.toArray(new KeyField[keyFieldList.size()]);
 		configuration.reverse = globalKeyField.reverse;
-		
 		return configuration;
 	}
 	
