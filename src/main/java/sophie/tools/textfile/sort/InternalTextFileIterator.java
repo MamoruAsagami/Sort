@@ -34,8 +34,13 @@ class InternalTextFileIterator implements Iterator<TextLine> {
 				Field field = textLine.fields[i] = new Field();
 				switch(keyFields[i].sortKind) {
 				case Text:
-					field.start = dataIn.readChar();
-					field.limit = dataIn.readChar();
+					field.start = dataIn.readShort();
+					field.limit = dataIn.readShort();
+					if(dataIn.readBoolean()) {
+						field.text = dataIn.readUTF();
+					} else {
+						field.text = null;
+					}
 					break;
 				case GeneralNumeric:
 					field.signedMagnitude = dataIn.readShort();
@@ -50,7 +55,6 @@ class InternalTextFileIterator implements Iterator<TextLine> {
 						length = dataIn.readInt();
 						field.fractionalPart = new byte[length];
 						dataIn.read(field.fractionalPart, 0, length);
-						field.signedMagnitude = dataIn.readShort();
 					}
 					break;
 				case Numeric:
@@ -71,6 +75,15 @@ class InternalTextFileIterator implements Iterator<TextLine> {
 					int length = dataIn.readInt();
 					field.digest = new byte[length];
 					dataIn.read(field.digest, 0, length);
+					if(Sort.GNU_SORT_COMPATIBLE) {
+						field.start = dataIn.readShort();
+						field.limit = dataIn.readShort();
+						if(dataIn.readBoolean()) {
+							field.text = dataIn.readUTF();
+						} else {
+							field.text = null;
+						}
+					}
 					break;
 				case Version:
 					field.version = dataIn.readUTF();

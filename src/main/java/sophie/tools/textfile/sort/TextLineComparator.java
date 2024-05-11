@@ -15,8 +15,8 @@ class TextLineComparator implements Comparator<TextLine> {
 	boolean sequenceSignificant;
 	
 	private int textCompare(KeyField keyField, TextLine thisTextLine, Field thisField, TextLine thatTextLine, Field thatField) {
-		String thisText = thisTextLine.line.substring(thisField.start, thisField.limit);
-		String thatText = thatTextLine.line.substring(thatField.start, thatField.limit);
+		String thisText = (thisField.text != null)? thisField.text: thisTextLine.line.substring(thisField.start, thisField.limit);
+		String thatText = (thatField.text != null)? thatField.text: thatTextLine.line.substring(thatField.start, thatField.limit);
 		if(keyField.ignore || keyField.translate) {
 			thisText = Sort.transform(keyField, thisText, 0, thisText.length());
 			thatText = Sort.transform(keyField, thatText, 0, thatText.length());
@@ -260,8 +260,8 @@ class TextLineComparator implements Comparator<TextLine> {
 			if(Sort.GNU_SORT_COMPATIBLE) {
 				// tie break processing
 				// The following is not exactly the same as GNU version, but similar idea. 
-				String thisText = thisTextLine.line.substring(thisField.start, thisField.limit);
-				String thatText = thatTextLine.line.substring(thatField.start, thatField.limit);
+				String thisText = ((thisField.text != null)? thisField.text: thisTextLine.line).substring(thisField.start, thisField.limit);
+				String thatText = ((thatField.text != null)? thatField.text: thatTextLine.line).substring(thatField.start, thatField.limit);
 				if(keyField.ignore || keyField.translate) {
 					thisText = Sort.transform(keyField, thisText, 0, thisText.length());
 					thatText = Sort.transform(keyField, thatText, 0, thatText.length());

@@ -21,6 +21,7 @@ public class Configuration {
 	boolean unique;
 	int bufferSize;
 	String bufferSizeSuffix;
+	boolean csv;
 	boolean defaultFieldSeparator = true;
 	char fieldSeparator;
 	String tmpDirectory;
@@ -159,6 +160,14 @@ public class Configuration {
 		return bufferSize;
 	}
 
+	public boolean isCsv() {
+		return csv;
+	}
+
+	public void setCsv(boolean csv) {
+		this.csv = csv;
+	}
+
 	public void setBufferSize(int bufferSize) {
 		this.bufferSize = bufferSize;
 	}
@@ -292,6 +301,7 @@ public class Configuration {
 			out.println("randomSource: " + randomSource);
 			out.println("stable: " + stable);
 			out.println("bufferSize: " + bufferSize + ((bufferSize != 0)? bufferSizeSuffix: ""));
+			out.println("csv: " + csv);
 			out.println("defaultFieldSeparator: " + defaultFieldSeparator);
 			if(Character.isISOControl(fieldSeparator)) {
 				out.println("fieldSeparator: 0x" + Integer.toHexString(fieldSeparator));

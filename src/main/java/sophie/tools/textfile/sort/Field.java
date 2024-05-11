@@ -1,9 +1,9 @@
 package sophie.tools.textfile.sort;
 
 class Field {
+	short start;
+	short limit;
 	String text;
-	char start;
-	char limit;
 	short signedMagnitude;
 	byte[] integralPart;
 	byte[] fractionalPart;

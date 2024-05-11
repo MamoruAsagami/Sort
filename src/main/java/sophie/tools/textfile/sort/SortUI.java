@@ -65,6 +65,7 @@ public class SortUI extends JPanel {
 	private JSpinner headerField;
 	private JTextField bufferSizeTextField;
 	private JComboBox<String> bufferSizeComboBox;
+	private JCheckBox csvCheckBox;
 	SortKeyTableModel sortKeyTableModel;
 	SortKeyTableView sortKeyTableView;
     
@@ -82,6 +83,7 @@ public class SortUI extends JPanel {
 	}
 	
 	static class SortKeyTableModel extends AbstractTableModel {
+		SortUI sortUI;
 		Vector<Key> keyList = new Vector<Key>();
 
 		void addNewKey() {
@@ -152,8 +154,16 @@ public class SortUI extends JPanel {
 				String startFieldValue = (String) value;
 				if(startFieldValue.matches("\\d+")) {
 					key.startFieldNumber = Integer.valueOf(startFieldValue);
+					if(sortUI.csvCheckBox.isSelected()) {
+						key.endFieldNumber = key.startFieldNumber;
+						fireTableRowsUpdated(rowIndex, rowIndex);
+					}
 				} else {
 					key.startFieldNumber = 0;
+					if(sortUI.csvCheckBox.isSelected()) {
+						key.endFieldNumber = Integer.MAX_VALUE;
+						fireTableRowsUpdated(rowIndex, rowIndex);
+					}
 				}
 				break;
 			case 2:
@@ -171,8 +181,16 @@ public class SortUI extends JPanel {
 				String endFieldValue = (String) value;
 				if(endFieldValue.matches("\\d+")) {
 					key.endFieldNumber = Integer.valueOf(endFieldValue);
+					if(sortUI.csvCheckBox.isSelected()) {
+						key.startFieldNumber = key.endFieldNumber;
+						fireTableRowsUpdated(rowIndex, rowIndex);
+					}
 				} else {
 					key.endFieldNumber = Integer.MAX_VALUE;
+					if(sortUI.csvCheckBox.isSelected()) {
+						key.startFieldNumber = Integer.MAX_VALUE;
+						fireTableRowsUpdated(rowIndex, rowIndex);
+					}
 				}
 				break;
 			case 5:
@@ -230,7 +248,9 @@ public class SortUI extends JPanel {
 	    	default: throw new IllegalStateException("columnIndex: Out of range");
 	    	}
 	    }
-		
+	    SortKeyTableModel(SortUI sortUI) {
+	    	this.sortUI = sortUI;
+	    }
 	}
 	
 	static class MultiLineHeaderCellRenderer implements TableCellRenderer {
@@ -643,6 +663,9 @@ public class SortUI extends JPanel {
     	innerPanel.add(bufferSizeTextField);
     	bufferSizeComboBox = new JComboBox<String>(new String[] {"%", "b", "K", "M", "G", " "});
     	innerPanel.add(bufferSizeComboBox);
+    	innerPanel.add(Box.createHorizontalStrut(4));
+    	csvCheckBox = new JCheckBox("CSV");
+    	innerPanel.add(csvCheckBox);
         northPanel.add(innerPanel, gbc);
     	//
         gbc.gridx = 0; gbc.gridy++; gbc.gridwidth = 1;
@@ -651,7 +674,7 @@ public class SortUI extends JPanel {
         northPanel.add(new JLabel("Keys", JLabel.RIGHT), gbc);
         gbc.gridx++; gbc.gridheight = 4; gbc.gridwidth = 5;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        sortKeyTableModel = new SortKeyTableModel();
+        sortKeyTableModel = new SortKeyTableModel(this);
         sortKeyTableView = new SortKeyTableView(sortKeyTableModel);
         JScrollPane scrollPane = new JScrollPane(sortKeyTableView, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setMaximumSize(scrollPane.getPreferredSize());
@@ -836,6 +859,7 @@ public class SortUI extends JPanel {
             				configuration.bufferSize = Integer.valueOf(bufferSize);
             				configuration.bufferSizeSuffix = (String)bufferSizeComboBox.getSelectedItem();
             			}
+            			configuration.csv = csvCheckBox.isSelected();
             			Vector<Key> keyList = sortKeyTableModel.keyList;
             			KeyField[] keyFields = new KeyField[keyList.size()];
             			for(int i = 0; i < keyFields.length; i++) {

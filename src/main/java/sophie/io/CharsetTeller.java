@@ -584,6 +584,28 @@ public class CharsetTeller {
 		return charsetTeller.getCharset();
 	}
 	
+	public static Charset getCharset(File file, int maxLines) throws IOException {
+		CharsetTeller charsetTeller = new CharsetTeller();
+		InputStream in = new BufferedInputStream(new FileInputStream(file));
+		try {
+			int c;
+			while((c = in.read()) != -1) {
+				charsetTeller.handle(c);
+				if(maxLines > 0) {
+					maxLines--;
+				} else {
+					if(c == '\r' || c == '\n')
+						break;
+				}
+			}
+			charsetTeller.close();
+		} finally {
+			in.close();
+		}
+		charsetTeller.close();
+		return charsetTeller.getCharset();
+	}
+	
 	public static Charset getCharset(InputStream in) throws IOException {
 		CharsetTeller charsetTeller = new CharsetTeller();
 		int c;

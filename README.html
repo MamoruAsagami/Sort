@@ -1,298 +1,627 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>README.html</title>
-  <meta name="generator" content="Haroopad 0.13.1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>README</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
 
-  <style>div.oembedall-githubrepos{border:1px solid #DDD;border-radius:4px;list-style-type:none;margin:0 0 10px;padding:8px 10px 0;font:13.34px/1.4 helvetica,arial,freesans,clean,sans-serif;width:452px;background-color:#fff}div.oembedall-githubrepos .oembedall-body{background:-moz-linear-gradient(center top,#FAFAFA,#EFEFEF);background:-webkit-gradient(linear,left top,left bottom,from(#FAFAFA),to(#EFEFEF));border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-top:1px solid #EEE;margin-left:-10px;margin-top:8px;padding:5px 10px;width:100%}div.oembedall-githubrepos h3{font-size:14px;margin:0;padding-left:18px;white-space:nowrap}div.oembedall-githubrepos p.oembedall-description{color:#444;font-size:12px;margin:0 0 3px}div.oembedall-githubrepos p.oembedall-updated-at{color:#888;font-size:11px;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats{border:none;float:right;font-size:11px;font-weight:700;padding-left:15px;position:relative;z-index:5;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats li{border:none;color:#666;display:inline-block;list-style-type:none;margin:0!important}div.oembedall-githubrepos ul.oembedall-repo-stats li a{background-color:transparent;border:none;color:#666!important;background-position:5px -2px;background-repeat:no-repeat;border-left:1px solid #DDD;display:inline-block;height:21px;line-height:21px;padding:0 5px 0 23px}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a{border-left:medium none;margin-right:-3px}div.oembedall-githubrepos ul.oembedall-repo-stats li a:hover{background:5px -27px no-repeat #4183C4;color:#FFF!important;text-decoration:none}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a:hover{border-bottom-left-radius:3px;border-top-left-radius:3px}ul.oembedall-repo-stats li:last-child a:hover{border-bottom-right-radius:3px;border-top-right-radius:3px}span.oembedall-closehide{background-color:#aaa;border-radius:2px;cursor:pointer;margin-right:3px}div.oembedall-container{margin-top:5px;text-align:left}.oembedall-ljuser{font-weight:700}.oembedall-ljuser img{vertical-align:bottom;border:0;padding-right:1px}.oembedall-stoqembed{border-bottom:1px dotted #999;float:left;overflow:hidden;width:730px;line-height:1;background:#FFF;color:#000;font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;font-size:80%;text-align:left;margin:0;padding:0}.oembedall-stoqembed a{color:#07C;text-decoration:none;margin:0;padding:0}.oembedall-stoqembed a:hover{text-decoration:underline}.oembedall-stoqembed a:visited{color:#4A6B82}.oembedall-stoqembed h3{font-family:Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;font-size:130%;font-weight:700;margin:0;padding:0}.oembedall-stoqembed .oembedall-reputation-score{color:#444;font-size:120%;font-weight:700;margin-right:2px}.oembedall-stoqembed .oembedall-user-info{height:35px;width:185px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-gravatar32{float:left;height:32px;width:32px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-details{float:left;margin-left:5px;overflow:hidden;white-space:nowrap;width:145px}.oembedall-stoqembed .oembedall-question-hyperlink{font-weight:700}.oembedall-stoqembed .oembedall-stats{background:#EEE;margin:0 0 0 7px;padding:4px 7px 6px;width:58px}.oembedall-stoqembed .oembedall-statscontainer{float:left;margin-right:8px;width:86px}.oembedall-stoqembed .oembedall-votes{color:#555;padding:0 0 7px;text-align:center}.oembedall-stoqembed .oembedall-vote-count-post{font-size:240%;color:#808185;display:block;font-weight:700}.oembedall-stoqembed .oembedall-views{color:#999;padding-top:4px;text-align:center}.oembedall-stoqembed .oembedall-status{margin-top:-3px;padding:4px 0;text-align:center;background:#75845C;color:#FFF}.oembedall-stoqembed .oembedall-status strong{color:#FFF;display:block;font-size:140%}.oembedall-stoqembed .oembedall-summary{float:left;width:635px}.oembedall-stoqembed .oembedall-excerpt{line-height:1.2;margin:0;padding:0 0 5px}.oembedall-stoqembed .oembedall-tags{float:left;line-height:18px}.oembedall-stoqembed .oembedall-tags a:hover{text-decoration:none}.oembedall-stoqembed .oembedall-post-tag{background-color:#E0EAF1;border-bottom:1px solid #3E6D8E;border-right:1px solid #7F9FB6;color:#3E6D8E;font-size:90%;line-height:2.4;margin:2px 2px 2px 0;padding:3px 4px;text-decoration:none;white-space:nowrap}.oembedall-stoqembed .oembedall-post-tag:hover{background-color:#3E6D8E;border-bottom:1px solid #37607D;border-right:1px solid #37607D;color:#E0EAF1}.oembedall-stoqembed .oembedall-fr{float:right}.oembedall-stoqembed .oembedall-statsarrow{background-image:url(http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=3);background-repeat:no-repeat;overflow:hidden;background-position:0 -435px;float:right;height:13px;margin-top:12px;width:7px}.oembedall-facebook1{border:1px solid #1A3C6C;padding:0;font:13.34px/1.4 verdana;width:500px}.oembedall-facebook2{background-color:#627add}.oembedall-facebook2 a{color:#e8e8e8;text-decoration:none}.oembedall-facebookBody{background-color:#fff;vertical-align:top;padding:5px}.oembedall-facebookBody .contents{display:inline-block;width:100%}.oembedall-facebookBody div img{float:left;margin-right:5px}div.oembedall-lanyard{-webkit-box-shadow:none;-webkit-transition-delay:0s;-webkit-transition-duration:.4000000059604645s;-webkit-transition-property:width;-webkit-transition-timing-function:cubic-bezier(0.42,0,.58,1);background-attachment:scroll;background-clip:border-box;background-color:transparent;background-image:none;background-origin:padding-box;border-width:0;box-shadow:none;color:#112644;display:block;float:left;font-family:'Trebuchet MS',Trebuchet,sans-serif;font-size:16px;height:253px;line-height:19px;margin:0;max-width:none;min-height:0;outline:#112644 0;overflow-x:visible;overflow-y:visible;padding:0;position:relative;text-align:left;vertical-align:baseline;width:804px}div.oembedall-lanyard .tagline{font-size:1.5em}div.oembedall-lanyard .wrapper{overflow:hidden;clear:both}div.oembedall-lanyard .split{float:left;display:inline}div.oembedall-lanyard .prominent-place .flag:active,div.oembedall-lanyard .prominent-place .flag:focus,div.oembedall-lanyard .prominent-place .flag:hover,div.oembedall-lanyard .prominent-place .flag:link,div.oembedall-lanyard .prominent-place .flag:visited{float:left;display:block;width:48px;height:48px;position:relative;top:-5px;margin-right:10px}div.oembedall-lanyard .place-context{font-size:.889em}div.oembedall-lanyard .prominent-place .sub-place{display:block}div.oembedall-lanyard .prominent-place{font-size:1.125em;line-height:1.1em;font-weight:400}div.oembedall-lanyard .main-date{color:#8CB4E0;font-weight:700;line-height:1.1}div.oembedall-lanyard .first{width:48.57%;margin:0 0 0 2.857%}.mermaid .label{color:#333}.node circle,.node polygon,.node rect{fill:#cde498;stroke:#13540c;stroke-width:1px}.edgePath .path{stroke:green;stroke-width:1.5px}.cluster rect{fill:#cdffb2;rx:40;stroke:#6eaa49;stroke-width:1px}.cluster text{fill:#333}.actor{stroke:#13540c;fill:#cde498}text.actor{fill:#000;stroke:none}.actor-line{stroke:grey}.messageLine0{stroke-width:1.5;stroke-dasharray:"2 2";marker-end:"url(#arrowhead)";stroke:#333}.messageLine1{stroke-width:1.5;stroke-dasharray:"2 2";stroke:#333}#arrowhead{fill:#333}#crosshead path{fill:#333!important;stroke:#333!important}.messageText{fill:#333;stroke:none}.labelBox{stroke:#326932;fill:#cde498}.labelText,.loopText{fill:#000;stroke:none}.loopLine{stroke-width:2;stroke-dasharray:"2 2";marker-end:"url(#arrowhead)";stroke:#326932}.note{stroke:#6eaa49;fill:#fff5ad}.noteText{fill:#000;stroke:none;font-family:'trebuchet ms',verdana,arial;font-size:14px}.section{stroke:none;opacity:.2}.section0,.section2{fill:#6eaa49}.section1,.section3{fill:#fff;opacity:.2}.sectionTitle0,.sectionTitle1,.sectionTitle2,.sectionTitle3{fill:#333}.sectionTitle{text-anchor:start;font-size:11px;text-height:14px}.grid .tick{stroke:lightgrey;opacity:.3;shape-rendering:crispEdges}.grid path{stroke-width:0}.today{fill:none;stroke:red;stroke-width:2px}.task{stroke-width:2}.taskText{text-anchor:middle;font-size:11px}.taskTextOutsideRight{fill:#000;text-anchor:start;font-size:11px}.taskTextOutsideLeft{fill:#000;text-anchor:end;font-size:11px}.taskText0,.taskText1,.taskText2,.taskText3{fill:#fff}.task0,.task1,.task2,.task3{fill:#487e3a;stroke:#13540c}.taskTextOutside0,.taskTextOutside1,.taskTextOutside2,.taskTextOutside3{fill:#000}.active0,.active1,.active2,.active3{fill:#cde498;stroke:#13540c}.activeText0,.activeText1,.activeText2,.activeText3{fill:#000!important}.done0,.done1,.done2,.done3{stroke:grey;fill:lightgrey;stroke-width:2}.doneText0,.doneText1,.doneText2,.doneText3{fill:#000!important}.crit0,.crit1,.crit2,.crit3{stroke:#f88;fill:red;stroke-width:2}.activeCrit0,.activeCrit1,.activeCrit2,.activeCrit3{stroke:#f88;fill:#cde498;stroke-width:2}.doneCrit0,.doneCrit1,.doneCrit2,.doneCrit3{stroke:#f88;fill:lightgrey;stroke-width:2;cursor:pointer;shape-rendering:crispEdges}.activeCritText0,.activeCritText1,.activeCritText2,.activeCritText3,.doneCritText0,.doneCritText1,.doneCritText2,.doneCritText3{fill:#000!important}.titleText{text-anchor:middle;font-size:18px;fill:#000}text{font-family:'trebuchet ms',verdana,arial;font-size:14px}html{height:100%}body{margin:0!important;padding:5px 20px 26px!important;background-color:#fff;font-family:"Lucida Grande","Segoe UI","Apple SD Gothic Neo","Malgun Gothic","Lucida Sans Unicode",Helvetica,Arial,sans-serif;font-size:.9em;overflow-x:hidden;overflow-y:auto}br,h1,h2,h3,h4,h5,h6{clear:both}hr.page{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x;border:0;height:3px;padding:0}hr.underscore{border-top-style:dashed!important}body >:first-child{margin-top:0!important}img.plugin{box-shadow:0 1px 3px rgba(0,0,0,.1);border-radius:3px}iframe{border:0}figure{-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start:0;-webkit-margin-end:0}kbd{border:1px solid #aaa;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-box-shadow:1px 2px 2px #ddd;-webkit-box-shadow:1px 2px 2px #ddd;box-shadow:1px 2px 2px #ddd;background-color:#f9f9f9;background-image:-moz-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-o-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-webkit-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:linear-gradient(top,#eee,#f9f9f9,#eee);padding:1px 3px;font-family:inherit;font-size:.85em}.oembeded .oembed_photo{display:inline-block}img[data-echo]{margin:25px 0;width:100px;height:100px;background:url(../img/ajax.gif) center center no-repeat #fff}.spinner{display:inline-block;width:10px;height:10px;margin-bottom:-.1em;border:2px solid rgba(0,0,0,.5);border-top-color:transparent;border-radius:100%;-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear}.spinner:after{content:'';display:block;width:0;height:0;position:absolute;top:-6px;left:0;border:4px solid transparent;border-bottom-color:rgba(0,0,0,.5);-webkit-transform:rotate(45deg);transform:rotate(45deg)}@-webkit-keyframes spin{to{-webkit-transform:rotate(360deg)}}@keyframes spin{to{transform:rotate(360deg)}}p.toc{margin:0!important}p.toc ul{padding-left:10px}p.toc>ul{padding:10px;margin:0 10px;display:inline-block;border:1px solid #ededed;border-radius:5px}p.toc li,p.toc ul{list-style-type:none}p.toc li{width:100%;padding:0;overflow:hidden}p.toc li a::after{content:"."}p.toc li a:before{content:"• "}p.toc h5{text-transform:uppercase}p.toc .title{float:left;padding-right:3px}p.toc .number{margin:0;float:right;padding-left:3px;background:#fff;display:none}input.task-list-item{margin-left:-1.62em}.markdown{font-family:"Hiragino Sans GB","Microsoft YaHei",STHeiti,SimSun,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",'Segoe UI',AppleSDGothicNeo-Medium,'Malgun Gothic',Verdana,Tahoma,sans-serif;padding:20px}.markdown a{text-decoration:none;vertical-align:baseline}.markdown a:hover{text-decoration:underline}.markdown h1{font-size:2.2em;font-weight:700;margin:1.5em 0 1em}.markdown h2{font-size:1.8em;font-weight:700;margin:1.275em 0 .85em}.markdown h3{font-size:1.6em;font-weight:700;margin:1.125em 0 .75em}.markdown h4{font-size:1.4em;font-weight:700;margin:.99em 0 .66em}.markdown h5{font-size:1.2em;font-weight:700;margin:.855em 0 .57em}.markdown h6{font-size:1em;font-weight:700;margin:.75em 0 .5em}.markdown h1+p,.markdown h1:first-child,.markdown h2+p,.markdown h2:first-child,.markdown h3+p,.markdown h3:first-child,.markdown h4+p,.markdown h4:first-child,.markdown h5+p,.markdown h5:first-child,.markdown h6+p,.markdown h6:first-child{margin-top:0}.markdown hr{border:1px solid #ccc}.markdown p{margin:1em 0;word-wrap:break-word}.markdown ol{list-style-type:decimal}.markdown li{display:list-item;line-height:1.4em}.markdown blockquote{margin:1em 20px}.markdown blockquote>:first-child{margin-top:0}.markdown blockquote>:last-child{margin-bottom:0}.markdown blockquote cite:before{content:'\2014 \00A0'}.markdown .code{border-radius:3px;word-wrap:break-word}.markdown pre{border-radius:3px;word-wrap:break-word;border:1px solid #ccc;overflow:auto;padding:.5em}.markdown pre code{border:0;display:block}.markdown pre>code{font-family:Consolas,Inconsolata,Courier,monospace;font-weight:700;white-space:pre;margin:0}.markdown code{border-radius:3px;word-wrap:break-word;border:1px solid #ccc;padding:0 5px;margin:0 2px}.markdown img{max-width:100%}.markdown mark{color:#000;background-color:#fcf8e3}.markdown table{padding:0;border-collapse:collapse;border-spacing:0;margin-bottom:16px}.markdown table tr td,.markdown table tr th{border:1px solid #ccc;margin:0;padding:6px 13px}.markdown table tr th{font-weight:700}.markdown table tr th>:first-child{margin-top:0}.markdown table tr th>:last-child{margin-bottom:0}.markdown table tr td>:first-child{margin-top:0}.markdown table tr td>:last-child{margin-bottom:0}@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700);.haroopad{padding:20px;color:#222;font-size:15px;font-family:"Roboto Condensed",Tauri,"Hiragino Sans GB","Microsoft YaHei",STHeiti,SimSun,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",'Segoe UI',AppleSDGothicNeo-Medium,'Malgun Gothic',Verdana,Tahoma,sans-serif;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}.haroopad a{color:#3269a0}.haroopad a:hover{color:#4183c4}.haroopad h2{border-bottom:1px solid #e6e6e6}.haroopad h6{color:#777}.haroopad hr{border:1px solid #e6e6e6}.haroopad blockquote>code,.haroopad h1>code,.haroopad h2>code,.haroopad h3>code,.haroopad h4>code,.haroopad h5>code,.haroopad h6>code,.haroopad li>code,.haroopad p>code,.haroopad td>code{font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;font-size:85%;background-color:rgba(0,0,0,.02);padding:.2em .5em;border:1px solid #efefef}.haroopad pre>code{font-size:1em;letter-spacing:-1px;font-weight:700}.haroopad blockquote{border-left:4px solid #e6e6e6;padding:0 15px;color:#777}.haroopad table{background-color:#fafafa}.haroopad table tr td,.haroopad table tr th{border:1px solid #e6e6e6}.haroopad table tr:nth-child(2n){background-color:#f2f2f2}.hljs{display:block;overflow-x:auto;padding:.5em;background:#fdf6e3;color:#657b83;-webkit-text-size-adjust:none}.diff .hljs-header,.hljs-comment,.hljs-doctype,.hljs-javadoc,.hljs-pi,.lisp .hljs-string{color:#93a1a1}.css .hljs-tag,.hljs-addition,.hljs-keyword,.hljs-request,.hljs-status,.hljs-winutils,.method,.nginx .hljs-title{color:#859900}.hljs-command,.hljs-dartdoc,.hljs-hexcolor,.hljs-link_url,.hljs-number,.hljs-phpdoc,.hljs-regexp,.hljs-rules .hljs-value,.hljs-string,.hljs-tag .hljs-value,.tex .hljs-formula{color:#2aa198}.css .hljs-function,.hljs-built_in,.hljs-chunk,.hljs-decorator,.hljs-id,.hljs-identifier,.hljs-localvars,.hljs-title,.vhdl .hljs-literal{color:#268bd2}.hljs-attribute,.hljs-class .hljs-title,.hljs-constant,.hljs-link_reference,.hljs-parent,.hljs-type,.hljs-variable,.lisp .hljs-body,.smalltalk .hljs-number{color:#b58900}.css .hljs-pseudo,.diff .hljs-change,.hljs-attr_selector,.hljs-cdata,.hljs-header,.hljs-pragma,.hljs-preprocessor,.hljs-preprocessor .hljs-keyword,.hljs-shebang,.hljs-special,.hljs-subst,.hljs-symbol,.hljs-symbol .hljs-string{color:#cb4b16}.hljs-deletion,.hljs-important{color:#dc322f}.hljs-link_label{color:#6c71c4}.tex .hljs-formula{background:#eee8d5}.MathJax_Preview{color:#888}#MathJax_Message{position:fixed;left:1px;bottom:2px;background-color:#E6E6E6;border:1px solid #959595;margin:0;padding:2px 8px;z-index:102;color:#000;font-size:80%;width:auto;white-space:nowrap}#MathJax_MSIE_Frame{position:absolute;top:0;left:0;width:0;z-index:101;border:0;margin:0;padding:0}.MathJax_Error{color:#C00;font-style:italic}.MathJax_Hover_Frame{border-radius:.25em;-webkit-border-radius:.25em;-moz-border-radius:.25em;-khtml-border-radius:.25em;box-shadow:0 0 15px #83A;-webkit-box-shadow:0 0 15px #83A;-moz-box-shadow:0 0 15px #83A;-khtml-box-shadow:0 0 15px #83A;border:1px solid #A6D!important;display:inline-block;position:absolute}.MathJax_Hover_Arrow{position:absolute;width:15px;height:11px;cursor:pointer}#MathJax_Zoom{position:absolute;background-color:#F0F0F0;overflow:auto;display:block;z-index:301;padding:.5em;border:1px solid #000;margin:0;font-weight:400;font-style:normal;text-align:left;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;box-shadow:5px 5px 15px #AAA;-webkit-box-shadow:5px 5px 15px #AAA;-moz-box-shadow:5px 5px 15px #AAA;-khtml-box-shadow:5px 5px 15px #AAA;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}#MathJax_ZoomOverlay{position:absolute;left:0;top:0;z-index:300;display:inline-block;width:100%;height:100%;border:0;padding:0;margin:0;background-color:#fff;opacity:0;filter:alpha(opacity=0)}#MathJax_ZoomFrame{position:relative;display:inline-block;height:0;width:0}#MathJax_ZoomEventTrap{position:absolute;left:0;top:0;z-index:302;display:inline-block;border:0;padding:0;margin:0;background-color:#fff;opacity:0;filter:alpha(opacity=0)}#MathJax_About{position:fixed;left:50%;width:auto;text-align:center;border:3px outset;padding:1em 2em;background-color:#DDD;color:#000;cursor:default;font-family:message-box;font-size:120%;font-style:normal;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;z-index:201;border-radius:15px;-webkit-border-radius:15px;-moz-border-radius:15px;-khtml-border-radius:15px;box-shadow:0 10px 20px gray;-webkit-box-shadow:0 10px 20px gray;-moz-box-shadow:0 10px 20px gray;-khtml-box-shadow:0 10px 20px gray;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}.MathJax_Menu{position:absolute;background-color:#fff;color:#000;width:auto;padding:2px;border:1px solid #CCC;margin:0;cursor:default;font:menu;text-align:left;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;z-index:201;box-shadow:0 10px 20px gray;-webkit-box-shadow:0 10px 20px gray;-moz-box-shadow:0 10px 20px gray;-khtml-box-shadow:0 10px 20px gray;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}.MathJax_MenuItem{padding:2px 2em;background:0 0}.MathJax_MenuArrow{position:absolute;right:.5em;color:#666}.MathJax_MenuActive .MathJax_MenuArrow{color:#fff}.MathJax_MenuArrow.RTL{left:.5em;right:auto}.MathJax_MenuCheck{position:absolute;left:.7em}.MathJax_MenuCheck.RTL{right:.7em;left:auto}.MathJax_MenuRadioCheck{position:absolute;left:1em}.MathJax_MenuRadioCheck.RTL{right:1em;left:auto}.MathJax_MenuLabel{padding:2px 2em 4px 1.33em;font-style:italic}.MathJax_MenuRule{border-top:1px solid #CCC;margin:4px 1px 0}.MathJax_MenuDisabled{color:GrayText}.MathJax_MenuActive{background-color:Highlight;color:HighlightText}.MathJax_Menu_Close{position:absolute;width:31px;height:31px;top:-15px;left:-15px}footer{position:fixed;font-size:.8em;text-align:right;bottom:0;margin-left:-25px;height:20px;width:100%}</style>
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+ :root {--mermaid-font-zoom:1.25em ;} 
+</style>
 </head>
-<body class="markdown haroopad">
-<h1 id="sort"><a name="sort" href="#sort"></a>Sort</h1><p>Sort is a Unix, Linux, Posix and GNU compatible sort program that runs in Java virtual machine. In addition to command line mode, it has GUI mode.</p><h2 id="1-how-to-run"><a name="1-how-to-run" href="#1-how-to-run"></a>1 How to run</h2><ol>
-<li>From command line shell, type java -jar Sort.jar [arguments]</li><li>From GUI shell, double-click Sort.jar icon. </li></ol><p>It runs in GUI mode if no arguments are specified.</p><h2 id="2-command-line-arguments"><a name="2-command-line-arguments" href="#2-command-line-arguments"></a>2 Command line arguments</h2><pre class="java hljs"><code class="java" data-origin="<pre><code class=&quot;java&quot;>Sort 1.0 - Sort text files
-usage: Sort [option ...] [input-file ...]
- -b,--ignore-leading-blanks        ignore leading blanks
-    --batch-size &amp;lt;NMERGE&amp;gt;          merge at most NMERGE inputs at once; for more
-                                   use temp files
- -c                                check for sorted input; do not sort
- -C                                like -c, but do not report first bad line
-    --check &amp;lt;[arg]&amp;gt;                none|diagnose-first: the same as -c,
-                                   quiet|silent: the same as -C
-    --cli                          run in CLI mode
-    --compress-program &amp;lt;PROG&amp;gt;      compress temporaries with PROG; decompress
-                                   them with PROG -d.  (Embedded GZIP is used
-                                   regardless of PROG)
- -d,--dictionary-order             consider only blanks and alphanumeric
-                                   characters
-    --debug                        annotate the part of the line used to sort,
-                                   and warn about questionable usage to stderr
-    --encoding &amp;lt;CHARSET&amp;gt;           use CHARSET to read and write.
-                                   CHARSET:=charset|in-charset, out-charset
- -f,--ignore-case                  fold lower case to upper case characters
-    --files0-from &amp;lt;F&amp;gt;              read input from the files specified by
-                                   NUL-terminated names in file F; If F is '-'
-                                   then read names from standard input
- -g,--general-numeric-sort         compare according to general numerical value
- -h,--human-numeric-sort           compare human readable numbers (e.g., 2K 1G)
-    --header &amp;lt;n [, every|first]&amp;gt;   n: the number of header lines, every: every
-                                   file has header lines, first: only the first
-                                   file has header lines.
-    --help                         show help message
- -i,--ignore-nonprinting           consider only printable characters
- -k,--key &amp;lt;KEYDEF&amp;gt;                 sort via a key; KEYDEF gives location and
-                                   type
-    --locale &amp;lt;LOCALE&amp;gt;              use LOCALE for collation; none, default or
-                                   language [, country [, variant]].
-                                   LOCALE:=locale|text-locale,number-locale
- -M,--month-sort                   compare (unknown) &amp;lt; 'JAN' &amp;lt; ... &amp;lt; 'DEC'
- -m,--merge                        merge already sorted files; do not sort
- -n,--numeric-sort                 compare according to string numerical value
- -o,--output &amp;lt;FILE&amp;gt;                write result to FILE instead of standard
-                                   output
-    --parallel &amp;lt;N&amp;gt;                 change the number of sorts run concurrently
-                                   to N
- -R,--random-sort                  shuffle, but group identical keys.
- -r,--reverse                      reverse the result of comparisons
-    --random-source &amp;lt;FILE&amp;gt;         get random bytes from FILE
- -s,--stable                       stabilize sort by disabling last-resort
-                                   comparison
- -S,--buffer-size &amp;lt;SIZE&amp;gt;           use SIZE for main memory buffer
-    --sort &amp;lt;WORD&amp;gt;                  sort according to WORD: general-numeric -g,
-                                   human-numeric -h, numeric -n, month -M,
-                                   random -R, version -V
- -t,--field-separator &amp;lt;SEP&amp;gt;        use SEP instead of non-blank to blank
-                                   transition. SEP:=c|'c'|'\t'|'/t'
- -T,--temporary-directory &amp;lt;DIR&amp;gt;    use DIR for temporaries, not TMPDIR
- -u,--unique                       with -c, check for strict ordering; without
-                                   -c, output only the first of an equal run
- -V,--version-sort                 natural sort of (version) numbers within text
- -z,--zero-terminated              line delimiter is NUL, not newline
-
-KEYDEF is F[.C][OPTS][,F[.C][OPTS]] for start and stop position, where F is a
-field number and C a character position in the field; both are origin 1, and
-the stop position defaults to the line's end.  If neither -t nor -b is in
-effect, characters in a field are counted from the beginning of the preceding
-whitespace.  OPTS is one or more single-letter ordering options [bdfgiMhnRrV],
-which override global ordering options for that key.  If no key is given, use
-the entire line as the key.  Use --debug to diagnose incorrect key usage.
-
-SIZE may be followed by the following multiplicative suffixes:
-% 1% of memory, b 1, K 1024 (default), and so on for M, G, T, P, E, Z, Y.
-</code></pre>">Sort 1.0 - Sort text files
-usage: Sort [option ...] [input-file ...]
- -b,--ignore-leading-blanks        ignore leading blanks
-    --batch-size &lt;NMERGE&gt;          merge at most NMERGE inputs at once; for more
-                                   use temp files
- -c                                check for sorted input; do not sort
- -C                                like -c, but do not report first bad line
-    --check &lt;[arg]&gt;                none|diagnose-first: the same as -c,
-                                   quiet|silent: the same as -C
-    --cli                          run in CLI mode
-    --compress-program &lt;PROG&gt;      compress temporaries with PROG; decompress
-                                   them with PROG -d.  (Embedded GZIP is used
-                                   regardless of PROG)
- -d,--dictionary-order             consider only blanks and alphanumeric
-                                   characters
-    --debug                        annotate the part of the line used to sort,
-                                   and warn about questionable usage to stderr
-    --encoding &lt;CHARSET&gt;           use CHARSET to read and write.
-                                   CHARSET:=charset|in-charset, out-charset
- -f,--ignore-case                  fold lower case to upper case characters
-    --files0-from &lt;F&gt;              read input from the files specified by
-                                   NUL-terminated names in file F; If F is '-'
-                                   then read names from standard input
- -g,--general-numeric-sort         compare according to general numerical value
- -h,--human-numeric-sort           compare human readable numbers (e.g., 2K 1G)
-    --header &lt;n [, every|first]&gt;   n: the number of header lines, every: every
-                                   file has header lines, first: only the first
-                                   file has header lines.
-    --help                         show help message
- -i,--ignore-nonprinting           consider only printable characters
- -k,--key &lt;KEYDEF&gt;                 sort via a key; KEYDEF gives location and
-                                   type
-    --locale &lt;LOCALE&gt;              use LOCALE for collation; none, default or
-                                   language [, country [, variant]].
-                                   LOCALE:=locale|text-locale,number-locale
- -M,--month-sort                   compare (unknown) &lt; 'JAN' &lt; ... &lt; 'DEC'
- -m,--merge                        merge already sorted files; do not sort
- -n,--numeric-sort                 compare according to string numerical value
- -o,--output &lt;FILE&gt;                write result to FILE instead of standard
-                                   output
-    --parallel &lt;N&gt;                 change the number of sorts run concurrently
-                                   to N
- -R,--random-sort                  shuffle, but group identical keys.
- -r,--reverse                      reverse the result of comparisons
-    --random-source &lt;FILE&gt;         get random bytes from FILE
- -s,--stable                       stabilize sort by disabling last-resort
-                                   comparison
- -S,--buffer-size &lt;SIZE&gt;           use SIZE for main memory buffer
-    --sort &lt;WORD&gt;                  sort according to WORD: general-numeric -g,
-                                   human-numeric -h, numeric -n, month -M,
-                                   random -R, version -V
- -t,--field-separator &lt;SEP&gt;        use SEP instead of non-blank to blank
-                                   transition. SEP:=c|'c'|'\t'|'/t'
- -T,--temporary-directory &lt;DIR&gt;    use DIR for temporaries, not TMPDIR
- -u,--unique                       with -c, check for strict ordering; without
-                                   -c, output only the first of an equal run
- -V,--version-sort                 natural sort of (version) numbers within text
- -z,--zero-terminated              line delimiter is NUL, not newline
-
-KEYDEF is F[.C][OPTS][,F[.C][OPTS]] for start and stop position, where F is a
-field number and C a character position in the field; both are origin 1, and
-the stop position defaults to the line's end.  If neither -t nor -b is in
-effect, characters in a field are counted from the beginning of the preceding
-whitespace.  OPTS is one or more single-letter ordering options [bdfgiMhnRrV],
-which override global ordering options for that key.  If no key is given, use
-the entire line as the key.  Use --debug to diagnose incorrect key usage.
-
-SIZE may be followed by the following multiplicative suffixes:
-% 1% of memory, b 1, K 1024 (default), and so on for M, G, T, P, E, Z, Y.
-</code></pre><p>The standard options are described in detail, for example, at <a href="https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html">https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html</a>.<br>In additon to the standard options, the following options are available.</p><table>
-<thead>
-<tr>
-<th style="width: 6em">Option</th>
-<th style="width: 14em">Arguments</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>--cli</td>
-<td>-</td>
-<td>Forces to run in CLI mode. Use it when there are no other options to specifiy.</td>
-</tr>
-<tr>
-<td>--encoding</td>
-<td>in-charset [, out-charset]</td>
-<td>Input and output encodings. Specify only one when they are the same.</td>
-</tr>
-<tr>
-<td>--header</td>
-<td>n [, every|first]</td>
-<td>The number of header lines of every or first file.</td>
-</tr>
-<tr>
-<td>--locale</td>
-<td>text-locale [, number-locale]</td>
-<td>Text and number locales. Specify only one when they are the same. Text-locale is used for collation and number-locale is used to decide number format.</td>
-</tr>
-</tbody>
-</table><h2 id="3-gui-main-window"><a name="3-gui-main-window" href="#3-gui-main-window"></a>3 GUI main window</h2><table>
-<thead>
-<tr>
-<th>Element</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>In file</td>
-<td>Input file.  Use the button to pop up a file browser.  You can drop a file icon into the text field, as well.</td>
-</tr>
-<tr>
-<td>Out file</td>
-<td>Output file.  Use the button to pop up a file browser.  You can drop a file icon into the text field, as well.</td>
-</tr>
-<tr>
-<td>Encoding.Input</td>
-<td>Input file encoding. Automatic means to use heuristic logic to decide the file encoding. Default means the system default file encoding.</td>
-</tr>
-<tr>
-<td>Encoding.Output</td>
-<td>Output file encoding. Automatic means to use the same encoding as input. Default means the system default file encoding.</td>
-</tr>
-<tr>
-<td>Locale.Text</td>
-<td>Text locale to decide text collation.</td>
-</tr>
-<tr>
-<td>Locale.Number</td>
-<td>Number locale to decide number format (decimal point and thousand separator).</td>
-</tr>
-<tr>
-<td>Field separator</td>
-<td>A character to separate fields.  Default means zero-length string between non-blank character and blank character. \t for tab code.</td>
-</tr>
-<tr>
-<td>Stable</td>
-<td>To specify stable sort option.</td>
-</tr>
-<tr>
-<td>Unique</td>
-<td>To specify unique option which eliminates output lines of the same key values.</td>
-</tr>
-<tr>
-<td>Header</td>
-<td>The number of header lines.  The header is copied from input to output not sorting.</td>
-</tr>
-<tr>
-<td>Buffer size</td>
-<td>Internal sort buffer size</td>
-</tr>
-<tr>
-<td>Start Field #</td>
-<td>Field number where th key starts.  BOL means the beginning of line.</td>
-</tr>
-<tr>
-<td>Start Char #</td>
-<td>Character position of the field where the key starts.  Blank means the beginning of the field.</td>
-</tr>
-<tr>
-<td>Start Skip blanks</td>
-<td>Specifies to skip blanks to find the key position.</td>
-</tr>
-<tr>
-<td>End Field #</td>
-<td>Field number where th key ends.  EOL means the end of line.</td>
-</tr>
-<tr>
-<td>End Char #</td>
-<td>Character position of the field where the key ends. Blank means the end of the field.</td>
-</tr>
-<tr>
-<td>End Skip blanks</td>
-<td>Specifies to skip blanks to find the end of key position.</td>
-</tr>
-<tr>
-<td>Sort Kind</td>
-<td>Comparison method</td>
-</tr>
-<tr>
-<td>Ignore</td>
-<td>Ignore filter</td>
-</tr>
-<tr>
-<td>Translate</td>
-<td>Translate filter</td>
-</tr>
-<tr>
-<td>Reverse</td>
-<td>Reverses the comparison to make it descending sort.</td>
-</tr>
-<tr>
-<td>Add</td>
-<td>Adds a new key</td>
-</tr>
-<tr>
-<td>Remove</td>
-<td>Removes the key</td>
-</tr>
-<tr>
-<td>Up</td>
-<td>Moves up the key</td>
-</tr>
-<tr>
-<td>Down</td>
-<td>Moves down the key</td>
-</tr>
-<tr>
-<td>Sort</td>
-<td>Starts sorting</td>
-</tr>
-</tbody>
-</table>
-
-<footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="sort" class="md-header-anchor"></a><span>Sort</span></h1><p><span>Sort is a Unix, Linux, Posix and GNU compatible sort program that runs in Java virtual machine. In addition to command line mode, it has GUI mode.   From version 1.1.0, it support CSV format files.</span></p><h2><a name="1-how-to-run" class="md-header-anchor"></a><span>1 How to run</span></h2><ol start='' ><li><span>From command line shell, type java -jar Sort.jar [arguments]</span></li><li><span>From GUI shell, double-click Sort.jar icon. </span></li></ol><p><span>It runs in GUI mode if no arguments are specified.</span></p><h2><a name="2-command-line-arguments" class="md-header-anchor"></a><span>2 Command line arguments</span></h2><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">Sort</span> <span class="cm-number">1.0</span> <span class="cm-operator">-</span> <span class="cm-variable">Sort</span> <span class="cm-variable">text</span> <span class="cm-variable">files</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">usage</span>: <span class="cm-variable">Sort</span> [<span class="cm-variable">option</span> ...] [<span class="cm-variable">input</span><span class="cm-operator">-</span><span class="cm-variable">file</span> ...]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">b</span>,<span class="cm-operator">--</span><span class="cm-variable">ignore</span><span class="cm-operator">-</span><span class="cm-variable">leading</span><span class="cm-operator">-</span><span class="cm-variable">blanks</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">ignore</span> <span class="cm-variable">leading</span> <span class="cm-variable">blanks</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">batch</span><span class="cm-operator">-</span><span class="cm-variable">size</span> <span class="cm-operator">&lt;</span><span class="cm-variable">NMERGE</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">merge</span> <span class="cm-variable">at</span> <span class="cm-variable">most</span> <span class="cm-variable">NMERGE</span> <span class="cm-variable">inputs</span> <span class="cm-variable">at</span> <span class="cm-variable">once</span>; <span class="cm-keyword">for</span> <span class="cm-variable">more</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">use</span> <span class="cm-variable">temp</span> <span class="cm-variable">files</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">c</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">check</span> <span class="cm-keyword">for</span> <span class="cm-variable">sorted</span> <span class="cm-variable">input</span>; <span class="cm-keyword">do</span> <span class="cm-variable">not</span> <span class="cm-variable">sort</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">C</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">like</span> <span class="cm-operator">-</span><span class="cm-variable">c</span>, <span class="cm-variable">but</span> <span class="cm-keyword">do</span> <span class="cm-variable">not</span> <span class="cm-variable">report</span> <span class="cm-variable">first</span> <span class="cm-variable">bad</span> <span class="cm-variable">line</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">check</span> <span class="cm-operator">&lt;</span>[<span class="cm-variable">arg</span>]<span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">none</span><span class="cm-operator">|</span><span class="cm-variable">diagnose</span><span class="cm-operator">-</span><span class="cm-variable">first</span>: <span class="cm-variable">the</span> <span class="cm-variable">same</span> <span class="cm-variable">as</span> <span class="cm-operator">-</span><span class="cm-variable">c</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">quiet</span><span class="cm-operator">|</span><span class="cm-variable">silent</span>: <span class="cm-variable">the</span> <span class="cm-variable">same</span> <span class="cm-variable">as</span> <span class="cm-operator">-</span><span class="cm-variable">C</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">cli</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">run</span> <span class="cm-variable">in</span> <span class="cm-variable">CLI</span> <span class="cm-variable">mode</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">compress</span><span class="cm-operator">-</span><span class="cm-variable">program</span> <span class="cm-operator">&lt;</span><span class="cm-variable">PROG</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp;<span class="cm-variable">compress</span> <span class="cm-variable">temporaries</span> <span class="cm-variable">with</span> <span class="cm-variable">PROG</span>; <span class="cm-variable">decompress</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">them</span> <span class="cm-variable">with</span> <span class="cm-variable">PROG</span> <span class="cm-operator">-</span><span class="cm-variable">d</span>.  (<span class="cm-variable">Embedded</span> <span class="cm-variable">GZIP</span> <span class="cm-variable">is</span> <span class="cm-variable">used</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">regardless</span> <span class="cm-variable">of</span> <span class="cm-variable">PROG</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">CSV</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">read</span> <span class="cm-variable">input</span> <span class="cm-variable">as</span> <span class="cm-def">CSV</span>(<span class="cm-variable-3">Character</span> <span class="cm-variable">Separated</span> <span class="cm-variable">Values</span>) <span class="cm-variable">format</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">d</span>,<span class="cm-operator">--</span><span class="cm-variable">dictionary</span><span class="cm-operator">-</span><span class="cm-variable">order</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">consider</span> <span class="cm-variable">only</span> <span class="cm-variable">blanks</span> <span class="cm-variable">and</span> <span class="cm-variable">alphanumeric</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">characters</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">debug</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">annotate</span> <span class="cm-variable">the</span> <span class="cm-variable">part</span> <span class="cm-variable">of</span> <span class="cm-variable">the</span> <span class="cm-variable">line</span> <span class="cm-variable">used</span> <span class="cm-variable">to</span> <span class="cm-variable">sort</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">and</span> <span class="cm-variable">warn</span> <span class="cm-variable">about</span> <span class="cm-variable">questionable</span> <span class="cm-variable">usage</span> <span class="cm-variable">to</span> <span class="cm-variable">stderr</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">encoding</span> <span class="cm-operator">&lt;</span><span class="cm-variable">CHARSET</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">use</span> <span class="cm-variable">CHARSET</span> <span class="cm-variable">to</span> <span class="cm-variable">read</span> <span class="cm-variable">and</span> <span class="cm-variable">write</span>.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">CHARSET</span>:<span class="cm-operator">=</span><span class="cm-variable">charset</span><span class="cm-operator">|</span><span class="cm-variable">in</span><span class="cm-operator">-</span><span class="cm-variable">charset</span>, <span class="cm-variable">out</span><span class="cm-operator">-</span><span class="cm-variable">charset</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">f</span>,<span class="cm-operator">--</span><span class="cm-variable">ignore</span><span class="cm-operator">-</span><span class="cm-keyword">case</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">fold</span> <span class="cm-variable">lower</span> <span class="cm-keyword">case</span> <span class="cm-variable">to</span> <span class="cm-variable">upper</span> <span class="cm-keyword">case</span> <span class="cm-variable">characters</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">files0</span><span class="cm-operator">-</span><span class="cm-variable">from</span> <span class="cm-operator">&lt;</span><span class="cm-variable">F</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">read</span> <span class="cm-variable">input</span> <span class="cm-variable">from</span> <span class="cm-variable">the</span> <span class="cm-variable">files</span> <span class="cm-variable">specified</span> <span class="cm-variable">by</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">NUL</span><span class="cm-operator">-</span><span class="cm-variable">terminated</span> <span class="cm-variable">names</span> <span class="cm-variable">in</span> <span class="cm-variable">file</span> <span class="cm-variable">F</span>; <span class="cm-variable">If</span> <span class="cm-variable">F</span> <span class="cm-variable">is</span> <span class="cm-string">'-'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">then</span> <span class="cm-variable">read</span> <span class="cm-variable">names</span> <span class="cm-variable">from</span> <span class="cm-variable">standard</span> <span class="cm-variable">input</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">g</span>,<span class="cm-operator">--</span><span class="cm-variable">general</span><span class="cm-operator">-</span><span class="cm-variable">numeric</span><span class="cm-operator">-</span><span class="cm-variable">sort</span> &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">compare</span> <span class="cm-variable">according</span> <span class="cm-variable">to</span> <span class="cm-variable">general</span> <span class="cm-variable">numerical</span> <span class="cm-variable">value</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">h</span>,<span class="cm-operator">--</span><span class="cm-variable">human</span><span class="cm-operator">-</span><span class="cm-variable">numeric</span><span class="cm-operator">-</span><span class="cm-variable">sort</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">compare</span> <span class="cm-variable">human</span> <span class="cm-variable">readable</span> <span class="cm-def">numbers</span> (<span class="cm-variable">e</span>.<span class="cm-variable">g</span>., <span class="cm-number">2</span><span class="cm-variable">K</span> <span class="cm-number">1</span><span class="cm-variable">G</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">header</span> <span class="cm-operator">&lt;</span><span class="cm-variable">n</span> [, <span class="cm-variable">every</span><span class="cm-operator">|</span><span class="cm-variable">first</span>]<span class="cm-operator">&gt;</span> &nbsp; <span class="cm-variable">n</span>: <span class="cm-variable">the</span> <span class="cm-variable">number</span> <span class="cm-variable">of</span> <span class="cm-variable">header</span> <span class="cm-variable">lines</span>, <span class="cm-variable">every</span>: <span class="cm-variable">every</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">file</span> <span class="cm-variable">has</span> <span class="cm-variable">header</span> <span class="cm-variable">lines</span>, <span class="cm-variable">first</span>: <span class="cm-variable">only</span> <span class="cm-variable">the</span> <span class="cm-variable">first</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">file</span> <span class="cm-variable">has</span> <span class="cm-variable">header</span> <span class="cm-variable">lines</span>.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">help</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">show</span> <span class="cm-variable">help</span> <span class="cm-variable">message</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">i</span>,<span class="cm-operator">--</span><span class="cm-variable">ignore</span><span class="cm-operator">-</span><span class="cm-variable">nonprinting</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">consider</span> <span class="cm-variable">only</span> <span class="cm-variable">printable</span> <span class="cm-variable">characters</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">k</span>,<span class="cm-operator">--</span><span class="cm-variable">key</span> <span class="cm-operator">&lt;</span><span class="cm-variable">KEYDEF</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">sort</span> <span class="cm-variable">via</span> <span class="cm-variable">a</span> <span class="cm-variable">key</span>; <span class="cm-variable">KEYDEF</span> <span class="cm-variable">gives</span> <span class="cm-variable">location</span> <span class="cm-variable">and</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">type</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">locale</span> <span class="cm-operator">&lt;</span><span class="cm-variable">LOCALE</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">use</span> <span class="cm-variable">LOCALE</span> <span class="cm-keyword">for</span> <span class="cm-variable">collation</span>; <span class="cm-variable">none</span>, <span class="cm-keyword">default</span> <span class="cm-variable">or</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">language</span> [, <span class="cm-variable">country</span> [, <span class="cm-variable">variant</span>]].</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">LOCALE</span>:<span class="cm-operator">=</span><span class="cm-variable">locale</span><span class="cm-operator">|</span><span class="cm-variable">text</span><span class="cm-operator">-</span><span class="cm-variable">locale</span>,<span class="cm-variable">number</span><span class="cm-operator">-</span><span class="cm-variable">locale</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">M</span>,<span class="cm-operator">--</span><span class="cm-variable">month</span><span class="cm-operator">-</span><span class="cm-variable">sort</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-def">compare</span> (<span class="cm-variable">unknown</span>) <span class="cm-operator">&lt;</span> <span class="cm-string">'JAN'</span> <span class="cm-operator">&lt;</span> ... <span class="cm-operator">&lt;</span> <span class="cm-string">'DEC'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">m</span>,<span class="cm-operator">--</span><span class="cm-variable">merge</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">merge</span> <span class="cm-variable">already</span> <span class="cm-variable">sorted</span> <span class="cm-variable">files</span>; <span class="cm-keyword">do</span> <span class="cm-variable">not</span> <span class="cm-variable">sort</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">n</span>,<span class="cm-operator">--</span><span class="cm-variable">numeric</span><span class="cm-operator">-</span><span class="cm-variable">sort</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">compare</span> <span class="cm-variable">according</span> <span class="cm-variable">to</span> <span class="cm-variable">string</span> <span class="cm-variable">numerical</span> <span class="cm-variable">value</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">o</span>,<span class="cm-operator">--</span><span class="cm-variable">output</span> <span class="cm-operator">&lt;</span><span class="cm-variable">FILE</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">write</span> <span class="cm-variable">result</span> <span class="cm-variable">to</span> <span class="cm-variable">FILE</span> <span class="cm-variable">instead</span> <span class="cm-variable">of</span> <span class="cm-variable">standard</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">output</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">parallel</span> <span class="cm-operator">&lt;</span><span class="cm-variable">N</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">change</span> <span class="cm-variable">the</span> <span class="cm-variable">number</span> <span class="cm-variable">of</span> <span class="cm-variable">sorts</span> <span class="cm-variable">run</span> <span class="cm-variable">concurrently</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">to</span> <span class="cm-variable">N</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">R</span>,<span class="cm-operator">--</span><span class="cm-variable">random</span><span class="cm-operator">-</span><span class="cm-variable">sort</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">shuffle</span>, <span class="cm-variable">but</span> <span class="cm-variable">group</span> <span class="cm-variable">identical</span> <span class="cm-variable">keys</span>.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">r</span>,<span class="cm-operator">--</span><span class="cm-variable">reverse</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">reverse</span> <span class="cm-variable">the</span> <span class="cm-variable">result</span> <span class="cm-variable">of</span> <span class="cm-variable">comparisons</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">random</span><span class="cm-operator">-</span><span class="cm-variable">source</span> <span class="cm-operator">&lt;</span><span class="cm-variable">FILE</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">get</span> <span class="cm-variable">random</span> <span class="cm-variable">bytes</span> <span class="cm-variable">from</span> <span class="cm-variable">FILE</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">s</span>,<span class="cm-operator">--</span><span class="cm-variable">stable</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">stabilize</span> <span class="cm-variable">sort</span> <span class="cm-variable">by</span> <span class="cm-variable">disabling</span> <span class="cm-variable">last</span><span class="cm-operator">-</span><span class="cm-variable">resort</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">comparison</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">S</span>,<span class="cm-operator">--</span><span class="cm-variable">buffer</span><span class="cm-operator">-</span><span class="cm-variable">size</span> <span class="cm-operator">&lt;</span><span class="cm-variable">SIZE</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">use</span> <span class="cm-variable">SIZE</span> <span class="cm-keyword">for</span> <span class="cm-variable">main</span> <span class="cm-variable">memory</span> <span class="cm-variable">buffer</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-operator">--</span><span class="cm-variable">sort</span> <span class="cm-operator">&lt;</span><span class="cm-variable">WORD</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">sort</span> <span class="cm-variable">according</span> <span class="cm-variable">to</span> <span class="cm-variable">WORD</span>: <span class="cm-variable">general</span><span class="cm-operator">-</span><span class="cm-variable">numeric</span> <span class="cm-operator">-</span><span class="cm-variable">g</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">human</span><span class="cm-operator">-</span><span class="cm-variable">numeric</span> <span class="cm-operator">-</span><span class="cm-variable">h</span>, <span class="cm-variable">numeric</span> <span class="cm-operator">-</span><span class="cm-variable">n</span>, <span class="cm-variable">month</span> <span class="cm-operator">-</span><span class="cm-variable">M</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">random</span> <span class="cm-operator">-</span><span class="cm-variable">R</span>, <span class="cm-variable">version</span> <span class="cm-operator">-</span><span class="cm-variable">V</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">t</span>,<span class="cm-operator">--</span><span class="cm-variable">field</span><span class="cm-operator">-</span><span class="cm-variable">separator</span> <span class="cm-operator">&lt;</span><span class="cm-variable">SEP</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">use</span> <span class="cm-variable">SEP</span> <span class="cm-variable">instead</span> <span class="cm-variable">of</span> <span class="cm-variable">non</span><span class="cm-operator">-</span><span class="cm-variable">blank</span> <span class="cm-variable">to</span> <span class="cm-variable">blank</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">transition</span>. <span class="cm-variable">SEP</span>:<span class="cm-operator">=</span><span class="cm-variable">c</span><span class="cm-operator">|</span><span class="cm-string">'c'</span><span class="cm-operator">|</span><span class="cm-string">'\t'</span><span class="cm-operator">|</span><span class="cm-string">'/t'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">T</span>,<span class="cm-operator">--</span><span class="cm-variable">temporary</span><span class="cm-operator">-</span><span class="cm-variable">directory</span> <span class="cm-operator">&lt;</span><span class="cm-variable">DIR</span><span class="cm-operator">&gt;</span> &nbsp; &nbsp;<span class="cm-variable">use</span> <span class="cm-variable">DIR</span> <span class="cm-keyword">for</span> <span class="cm-variable">temporaries</span>, <span class="cm-variable">not</span> <span class="cm-variable">TMPDIR</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">u</span>,<span class="cm-operator">--</span><span class="cm-variable">unique</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">with</span> <span class="cm-operator">-</span><span class="cm-variable">c</span>, <span class="cm-variable">check</span> <span class="cm-keyword">for</span> <span class="cm-variable">strict</span> <span class="cm-variable">ordering</span>; <span class="cm-variable">without</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">-</span><span class="cm-variable">c</span>, <span class="cm-variable">output</span> <span class="cm-variable">only</span> <span class="cm-variable">the</span> <span class="cm-variable">first</span> <span class="cm-variable">of</span> <span class="cm-variable">an</span> <span class="cm-variable">equal</span> <span class="cm-variable">run</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">V</span>,<span class="cm-operator">--</span><span class="cm-variable">version</span><span class="cm-operator">-</span><span class="cm-variable">sort</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-variable">natural</span> <span class="cm-variable">sort</span> <span class="cm-def">of</span> (<span class="cm-variable">version</span>) <span class="cm-variable">numbers</span> <span class="cm-variable">within</span> <span class="cm-variable">text</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> <span class="cm-operator">-</span><span class="cm-variable">z</span>,<span class="cm-operator">--</span><span class="cm-variable">zero</span><span class="cm-operator">-</span><span class="cm-variable">terminated</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">line</span> <span class="cm-variable">delimiter</span> <span class="cm-variable">is</span> <span class="cm-variable">NUL</span>, <span class="cm-variable">not</span> <span class="cm-variable">newline</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">KEYDEF</span> <span class="cm-variable">is</span> <span class="cm-variable">F</span>[.<span class="cm-variable">C</span>][<span class="cm-variable">OPTS</span>][,<span class="cm-variable">F</span>[.<span class="cm-variable">C</span>][<span class="cm-variable">OPTS</span>]] <span class="cm-keyword">for</span> <span class="cm-variable">start</span> <span class="cm-variable">and</span> <span class="cm-variable">stop</span> <span class="cm-variable">position</span>, <span class="cm-variable">where</span> <span class="cm-variable">F</span> <span class="cm-variable">is</span> <span class="cm-variable">a</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">field</span> <span class="cm-variable">number</span> <span class="cm-variable">and</span> <span class="cm-variable">C</span> <span class="cm-variable">a</span> <span class="cm-variable">character</span> <span class="cm-variable">position</span> <span class="cm-variable">in</span> <span class="cm-variable">the</span> <span class="cm-variable">field</span>; <span class="cm-variable">both</span> <span class="cm-variable">are</span> <span class="cm-variable">origin</span> <span class="cm-number">1</span>, <span class="cm-variable">and</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">the</span> <span class="cm-variable">stop</span> <span class="cm-variable">position</span> <span class="cm-variable">defaults</span> <span class="cm-variable">to</span> <span class="cm-variable">the</span> <span class="cm-variable">line</span><span class="cm-string">'s end.  If neither -t nor -b is in</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">effect</span>, <span class="cm-variable">characters</span> <span class="cm-variable">in</span> <span class="cm-variable">a</span> <span class="cm-variable">field</span> <span class="cm-variable">are</span> <span class="cm-variable">counted</span> <span class="cm-variable">from</span> <span class="cm-variable">the</span> <span class="cm-variable">beginning</span> <span class="cm-variable">of</span> <span class="cm-variable">the</span> <span class="cm-variable">preceding</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">whitespace</span>. &nbsp;<span class="cm-variable">OPTS</span> <span class="cm-variable">is</span> <span class="cm-variable">one</span> <span class="cm-variable">or</span> <span class="cm-variable">more</span> <span class="cm-variable">single</span><span class="cm-operator">-</span><span class="cm-variable">letter</span> <span class="cm-variable">ordering</span> <span class="cm-variable">options</span> [<span class="cm-variable">bdfgiMhnRrV</span>],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">which</span> <span class="cm-variable">override</span> <span class="cm-variable">global</span> <span class="cm-variable">ordering</span> <span class="cm-variable">options</span> <span class="cm-keyword">for</span> <span class="cm-variable">that</span> <span class="cm-variable">key</span>. &nbsp;<span class="cm-variable">If</span> <span class="cm-variable">no</span> <span class="cm-variable">key</span> <span class="cm-variable">is</span> <span class="cm-variable">given</span>, <span class="cm-variable">use</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">the</span> <span class="cm-variable">entire</span> <span class="cm-variable">line</span> <span class="cm-variable">as</span> <span class="cm-variable">the</span> <span class="cm-variable">key</span>. &nbsp;<span class="cm-variable">Use</span> <span class="cm-operator">--</span><span class="cm-variable">debug</span> <span class="cm-variable">to</span> <span class="cm-variable">diagnose</span> <span class="cm-variable">incorrect</span> <span class="cm-variable">key</span> <span class="cm-variable">usage</span>.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">SIZE</span> <span class="cm-variable">may</span> <span class="cm-variable">be</span> <span class="cm-variable">followed</span> <span class="cm-variable">by</span> <span class="cm-variable">the</span> <span class="cm-variable">following</span> <span class="cm-variable">multiplicative</span> <span class="cm-variable">suffixes</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">%</span> <span class="cm-number">1</span><span class="cm-operator">%</span> <span class="cm-variable">of</span> <span class="cm-variable">memory</span>, <span class="cm-variable">b</span> <span class="cm-number">1</span>, <span class="cm-variable">K</span> <span class="cm-number">1024</span> (<span class="cm-keyword">default</span>), <span class="cm-variable">and</span> <span class="cm-variable">so</span> <span class="cm-variable">on</span> <span class="cm-keyword">for</span> <span class="cm-variable">M</span>, <span class="cm-variable">G</span>, <span class="cm-variable">T</span>, <span class="cm-variable">P</span>, <span class="cm-variable">E</span>, <span class="cm-variable">Z</span>, <span class="cm-variable">Y</span>.</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1590px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1590px;"></div></div></div></pre><p><span>The standard options are described in detail, for example, at </span><a href='https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html' target='_blank' class='url'>https://www.gnu.org/software/coreutils/manual/html_node/sort-invocation.html</a><span>.</span>
+<span>In additon to the standard options, the following options are available.</span></p><figure><table><thead><tr><th><span>Option</span></th><th><span>Arguments</span></th><th><span>Description</span></th></tr></thead><tbody><tr><td><span>-</span><span>-cli</span></td><td><span>-</span></td><td><span>Forces to run in CLI mode. Use it when there are no other options to specifiy.</span></td></tr><tr><td><span>-</span><span>-encoding</span></td><td><span>in-charset [, out-charset]</span></td><td><span>Input and output encodings. Specify only one when they are the same.</span></td></tr><tr><td><span>-</span><span>-header</span></td><td><span>n [, every</span>&#124;<span>first]</span></td><td><span>The number of header lines of every or first file.</span></td></tr><tr><td><span>-</span><span>-locale</span></td><td><span>text-locale [, number-locale]</span></td><td><span>Text and number locales. Specify only one when they are the same. Text-locale is used for collation and number-locale is used to decide number format.</span></td></tr></tbody></table></figure><h2><a name="3-gui-main-window" class="md-header-anchor"></a><span>3 GUI main window</span></h2><figure><table><thead><tr><th><span>Element</span></th><th><span>Description</span></th></tr></thead><tbody><tr><td><span>In file</span></td><td><span>Input file.  Use the button to pop up a file browser.  You can drop a file icon into the text field, as well.</span></td></tr><tr><td><span>Out file</span></td><td><span>Output file.  Use the button to pop up a file browser.  You can drop a file icon into the text field, as well.</span></td></tr><tr><td><span>Encoding.Input</span></td><td><span>Input file encoding. Automatic means to use heuristic logic to decide the file encoding. Default means the system default file encoding.</span></td></tr><tr><td><span>Encoding.Output</span></td><td><span>Output file encoding. Automatic means to use the same encoding as input. Default means the system default file encoding.</span></td></tr><tr><td><span>Locale.Text</span></td><td><span>Text locale to decide text collation.</span></td></tr><tr><td><span>Locale.Number</span></td><td><span>Number locale to decide number format (decimal point and thousand separator).</span></td></tr><tr><td><span>Field separator</span></td><td><span>A character to separate fields.  Default means zero-length string between non-blank character and blank character. \t for tab code.</span></td></tr><tr><td><span>Stable</span></td><td><span>To specify stable sort option.</span></td></tr><tr><td><span>Unique</span></td><td><span>To specify unique option which eliminates output lines of the same key values.</span></td></tr><tr><td><span>Header</span></td><td><span>The number of header lines.  The header is copied from input to output not sorting.</span></td></tr><tr><td><span>Buffer size</span></td><td><span>Internal sort buffer size</span></td></tr><tr><td><span>CSV</span></td><td><span>CSV file format</span></td></tr><tr><td><span>Start Field #</span></td><td><span>Field number where th key starts.  BOL means the beginning of line.</span></td></tr><tr><td><span>Start Char #</span></td><td><span>Character position of the field where the key starts.  Blank means the beginning of the field.</span></td></tr><tr><td><span>Start Skip blanks</span></td><td><span>Specifies to skip blanks to find the key position.</span></td></tr><tr><td><span>End Field #</span></td><td><span>Field number where th key ends.  EOL means the end of line.</span></td></tr><tr><td><span>End Char #</span></td><td><span>Character position of the field where the key ends. Blank means the end of the field.</span></td></tr><tr><td><span>End Skip blanks</span></td><td><span>Specifies to skip blanks to find the end of key position.</span></td></tr><tr><td><span>Sort Kind</span></td><td><span>Comparison method</span></td></tr><tr><td><span>Ignore</span></td><td><span>Ignore filter</span></td></tr><tr><td><span>Translate</span></td><td><span>Translate filter</span></td></tr><tr><td><span>Reverse</span></td><td><span>Reverses the comparison to make it descending sort.</span></td></tr><tr><td><span>Add</span></td><td><span>Adds a new key</span></td></tr><tr><td><span>Remove</span></td><td><span>Removes the key</span></td></tr><tr><td><span>Up</span></td><td><span>Moves up the key</span></td></tr><tr><td><span>Down</span></td><td><span>Moves down the key</span></td></tr><tr><td><span>Sort</span></td><td><span>Starts sorting</span></td></tr></tbody></table></figure><h2><a name="version-history" class="md-header-anchor"></a><span>Version history</span></h2><h3><a name="100-feb-23-2017-initial-release" class="md-header-anchor"></a><span>1.0.0 Feb 23, 2017 Initial release</span></h3><h3><a name="110-may-11-2024" class="md-header-anchor"></a><span>1.1.0 May 11, 2024</span></h3><ul><li><span>Supported CSV files</span></li><li><span>Fixed Skip end blanks processing</span></li></ul></div>
 </body>
 </html>

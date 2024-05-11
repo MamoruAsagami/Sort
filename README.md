@@ -1,5 +1,5 @@
 # Sort
-Sort is a Unix, Linux, Posix and GNU compatible sort program that runs in Java virtual machine. In addition to command line mode, it has GUI mode.
+Sort is a Unix, Linux, Posix and GNU compatible sort program that runs in Java virtual machine. In addition to command line mode, it has GUI mode.   From version 1.1.0, it support CSV format files.
 
 ## 1 How to run
 1. From command line shell, type java -jar Sort.jar [arguments]
@@ -23,6 +23,7 @@ usage: Sort [option ...] [input-file ...]
     --compress-program <PROG>      compress temporaries with PROG; decompress
                                    them with PROG -d.  (Embedded GZIP is used
                                    regardless of PROG)
+    --CSV                          read input as CSV(Character Separated Values) format
  -d,--dictionary-order             consider only blanks and alphanumeric
                                    characters
     --debug                        annotate the part of the line used to sort,
@@ -105,6 +106,7 @@ Stable | To specify stable sort option.
 Unique | To specify unique option which eliminates output lines of the same key values.
 Header | The number of header lines.  The header is copied from input to output not sorting.
 Buffer size | Internal sort buffer size
+CSV | CSV file format
 Start Field # | Field number where th key starts.  BOL means the beginning of line.
 Start Char #  | Character position of the field where the key starts.  Blank means the beginning of the field.
 Start Skip blanks  | Specifies to skip blanks to find the key position.
@@ -121,3 +123,8 @@ Up        | Moves up the key
 Down      | Moves down the key
 Sort      | Starts sorting
 
+## Version history
+### 1.0.0 Feb 23, 2017 Initial release
+### 1.1.0 May 11, 2024
+* Supported CSV files
+* Fixed Skip end blanks processing

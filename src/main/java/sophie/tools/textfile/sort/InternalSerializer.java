@@ -42,8 +42,14 @@ class InternalSerializer implements ExternalMergeSort.Serializer<TextLine> {
 				Field field = textLine.fields[i];
 				switch(keyFields[i].sortKind) {
 				case Text:
-					dataOut.writeChar(field.start);
-					dataOut.writeChar(field.limit);
+					dataOut.writeShort(field.start);
+					dataOut.writeShort(field.limit);
+					if(field.text != null) {
+						dataOut.writeBoolean(true);
+						dataOut.writeUTF(field.text);
+					} else {
+						dataOut.writeBoolean(false);
+					}
 					break;
 				case GeneralNumeric:
 					dataOut.writeShort(field.signedMagnitude);
@@ -55,7 +61,6 @@ class InternalSerializer implements ExternalMergeSort.Serializer<TextLine> {
 					dataOut.write(field.integralPart, 0, field.integralPart.length);
 					dataOut.writeInt(field.fractionalPart.length);
 					dataOut.write(field.fractionalPart, 0, field.fractionalPart.length);
-					dataOut.writeShort(field.signedMagnitude);
 					break;
 				case Numeric:
 					dataOut.writeShort(field.signedMagnitude);
@@ -70,6 +75,16 @@ class InternalSerializer implements ExternalMergeSort.Serializer<TextLine> {
 				case Random:
 					dataOut.writeInt(field.digest.length);
 					dataOut.write(field.digest, 0, field.digest.length);
+					if(Sort.GNU_SORT_COMPATIBLE) {
+						dataOut.writeShort(field.start);
+						dataOut.writeShort(field.limit);
+						if(field.text != null) {
+							dataOut.writeBoolean(true);
+							dataOut.writeUTF(field.text);
+						} else {
+							dataOut.writeBoolean(false);
+						}
+					}
 					break;
 				case Version:
 					dataOut.writeUTF(field.version);

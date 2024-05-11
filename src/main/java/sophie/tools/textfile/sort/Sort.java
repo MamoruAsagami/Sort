@@ -31,7 +31,10 @@ import org.geirove.exmeso.CloseableIterator;
 
 
 public class Sort {
-	static final String VERSION = "1.0.2";
+	static final String VERSION = "1.1.0";
+	// 1.1.0:
+	// Introduced CSV file support.
+	// Fixed Skip end blanks processing.
 	static final String TITLE = Sort.class.getSimpleName() + " " + VERSION;
 	static final boolean GNU_SORT_COMPATIBLE = false;
 	static final Options commandLineOptions;
@@ -88,6 +91,7 @@ public class Sort {
 						.argName("PROG")
 						.desc("compress temporaries with PROG; decompress them with PROG -d.  (Embedded GZIP is used regardless of PROG)")
 						.build())
+				.addOption(null, "CSV", false, "read input as CSV(Character Separated Values) format")
 				.addOption(null, "debug", false, "annotate the part of the line used to sort, and warn about questionable usage to stderr")
 				.addOption(Option.builder()
 						.longOpt("files0-from")
@@ -817,6 +821,9 @@ public class Sort {
 		}
 		if(commandLine.hasOption("compress-program")) {
 			configuration.compressProgram = commandLine.getOptionValue("compress-program");
+		}
+		if(commandLine.hasOption("CSV")) {
+			configuration.csv = true;
 		}
 		if(commandLine.hasOption("debug")) {
 			configuration.debug = true;

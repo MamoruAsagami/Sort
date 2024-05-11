@@ -6,6 +6,7 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -344,8 +345,9 @@ class ExternalTextFileIterator implements Iterator<TextLine> {
 
 	private void takeRandom(KeyField keyField, Field field, String line, int startFieldIndex, int endFieldIndex) throws IOException {
 		if(Sort.GNU_SORT_COMPATIBLE) {
-			field.start = (char)startFieldIndex;
-			field.limit = (char)endFieldIndex;
+			field.start = (short)startFieldIndex;
+			field.limit = (short)endFieldIndex;
+			field.text = line.substring(startFieldIndex, endFieldIndex);
 		}
 		if(keyField.ignore || keyField.translate) {
 			line = Sort.transform(keyField, line, startFieldIndex, endFieldIndex);
@@ -400,84 +402,163 @@ class ExternalTextFileIterator implements Iterator<TextLine> {
 		textLine.seq = lineSeq;
 		if(keyFields.length != 0) {
 			textLine.fields = new Field[keyFields.length];
-			int[] fieldIndexes = configuration.defaultFieldSeparator? Sort.splitLine(line): Sort.splitLine(line, configuration.fieldSeparator);
-			for(int i = 0; i < keyFields.length; i++) {
-				KeyField keyField = keyFields[i];
-				Field field = textLine.fields[i] = new Field();
-				int startFieldIndex;
-				int startFieldLimit;
-				int endFieldIndex;
-				int endFieldLimit;
-				if(keyField.startField == Integer.MAX_VALUE) {
-					startFieldIndex = 0;
-					startFieldLimit = endFieldIndex = endFieldLimit = line.length(); 
-				} else {
-					if(keyField.startField <= fieldIndexes.length / 2) {
-						int index = keyField.startField > 0? (keyField.startField - 1) * 2: 0;
-						startFieldIndex = fieldIndexes[index];
-						startFieldLimit = fieldIndexes[index + 1];
-					} else {
-						startFieldIndex = startFieldLimit = line.length();
+			if(configuration.csv) {
+				com.csvreader.CsvReader csvReader = new com.csvreader.CsvReader(new StringReader(line), configuration.defaultFieldSeparator? ',': configuration.fieldSeparator);
+				try {
+					csvReader.readRecord();
+					String[] values = csvReader.getValues();
+					for(int i = 0; i < keyFields.length; i++) {
+						KeyField keyField = keyFields[i];
+						Field field = textLine.fields[i] = new Field();
+						int valueIndex = (keyField.startField == Integer.MAX_VALUE)? 0: keyField.startField - 1;
+						String value = (valueIndex  < values.length)? values[valueIndex]: "";
+						int startIndex = Math.min(value.length(), ((keyField.startChar > 0)? keyField.startChar - 1: 0));
+						int limitIndex = keyField.endChar != 0? Math.min(value.length(), keyField.endChar): value.length();
+						if(keyField.skipStartBlanks) {
+							for(; startIndex < limitIndex && Character.isWhitespace(value.charAt(startIndex)); startIndex++) {
+								// Nothing to do
+							}
+						}
+						if(keyField.skipEndBlanks) {
+							for(; limitIndex > startIndex && Character.isWhitespace(value.charAt(limitIndex - 1)); limitIndex--) {
+								// Nothing to do
+							}
+						}
+						if(debug) {
+							System.out.println("file: " + fileNumber + " line: " + lineNumber + " key[" + i +  "] , " + keyFields[i].sortKind + "(" + startIndex + ", " + limitIndex + "): \"" + value.substring(startIndex, limitIndex) + "\"");
+						}
+						try {
+							switch(keyFields[i].sortKind) {
+							case Text:
+								field.start = -1;
+								field.limit = -1;
+								field.text = value.substring(startIndex, limitIndex);
+								break;
+							case GeneralNumeric:
+								takeGeneralNumeric(keyField, field, value, startIndex, limitIndex, true);
+								break;
+							case HumanNumeric:
+								takeNumeric(keyField, field, value, startIndex, limitIndex, true);
+								break;
+							case Numeric:
+								takeNumeric(keyField, field, value, startIndex, limitIndex, false);
+								break;
+							case Month:
+								takeMonth(keyField, field, value, startIndex, limitIndex);
+								break;
+							case Random:
+								takeRandom(keyField, field, value, startIndex, limitIndex);
+								break;
+							case Version:
+								takeVersion(keyField, field, value, startIndex, limitIndex);
+								break;
+							default:
+								throw new IllegalStateException("Unknown SortKind");
+							}
+						} catch(Exception e) {
+							throw new RuntimeException("file: " + fileNumber + " line: " + lineNumber + " key[" + i +  "] , " + keyFields[i].sortKind + ": " + e, e);
+						}
 					}
-					if(keyField.endField <= fieldIndexes.length / 2) {
-						int index = keyField.endField > 0? (keyField.endField - 1) * 2: 0;
-						endFieldIndex = fieldIndexes[index];
-						endFieldLimit = fieldIndexes[index + 1];
-					} else {
-						endFieldIndex = endFieldLimit = line.length();
-					}
+				} finally {
+					csvReader.close();
 				}
-				if(keyField.skipStartBlanks) {
-					for(; startFieldIndex < (Sort.GNU_SORT_COMPATIBLE? line.length(): startFieldLimit) && Character.isWhitespace(line.charAt(startFieldIndex)); startFieldIndex++) {
-						// Nothing to do
+				
+			} else {
+				int[] fieldIndexes = configuration.defaultFieldSeparator? Sort.splitLine(line): Sort.splitLine(line, configuration.fieldSeparator);
+				for(int i = 0; i < keyFields.length; i++) {
+					KeyField keyField = keyFields[i];
+					Field field = textLine.fields[i] = new Field();
+					int startFieldIndex;
+					int startFieldLimit;
+					int endFieldIndex;
+					int endFieldLimit;
+					if(keyField.startField == Integer.MAX_VALUE) {
+						startFieldIndex = 0;
+						startFieldLimit = endFieldIndex = endFieldLimit = line.length(); 
+					} else {
+						if(keyField.startField <= fieldIndexes.length / 2) {
+							int index = keyField.startField > 0? (keyField.startField - 1) * 2: 0;
+							startFieldIndex = fieldIndexes[index];
+							startFieldLimit = fieldIndexes[index + 1];
+						} else {
+							startFieldIndex = startFieldLimit = line.length();
+						}
+						if(keyField.endField <= fieldIndexes.length / 2) {
+							int index = keyField.endField > 0? (keyField.endField - 1) * 2: 0;
+							endFieldIndex = fieldIndexes[index];
+							endFieldLimit = fieldIndexes[index + 1];
+						} else {
+							endFieldIndex = endFieldLimit = line.length();
+						}
 					}
-				}
-				startFieldIndex = Math.min(startFieldLimit, startFieldIndex + ((keyField.startChar > 0)? keyField.startChar - 1: 0));
-				if(keyField.endChar == 0) {
-					endFieldIndex = endFieldLimit;
-				} else {
-					if(keyField.skipEndBlanks) {
-						for(; endFieldIndex < (Sort.GNU_SORT_COMPATIBLE? line.length(): endFieldLimit) && Character.isWhitespace(line.charAt(endFieldIndex)); endFieldIndex++) {
+					if(keyField.skipStartBlanks) {
+						for(; startFieldIndex < (Sort.GNU_SORT_COMPATIBLE? line.length(): startFieldLimit) && Character.isWhitespace(line.charAt(startFieldIndex)); startFieldIndex++) {
 							// Nothing to do
 						}
 					}
-					endFieldIndex = Math.min(endFieldLimit, endFieldIndex + keyField.endChar);
-				}
-				if(endFieldIndex < startFieldIndex) {
-					endFieldIndex = startFieldIndex;
-				}
-				if(debug) {
-					System.out.println("file: " + fileNumber + " line: " + lineNumber + " key[" + i +  "] , " + keyFields[i].sortKind + "(" + startFieldIndex + ", " + endFieldIndex + "): \"" + line.substring(startFieldIndex, endFieldIndex) + "\"");
-				}
-				try {
-					switch(keyFields[i].sortKind) {
-					case Text:
-						field.start = (char)startFieldIndex;
-						field.limit = (char)endFieldIndex;
-						break;
-					case GeneralNumeric:
-						takeGeneralNumeric(keyField, field, line, startFieldIndex, endFieldIndex, true);
-						break;
-					case HumanNumeric:
-						takeNumeric(keyField, field, line, startFieldIndex, endFieldIndex, true);
-						break;
-					case Numeric:
-						takeNumeric(keyField, field, line, startFieldIndex, endFieldIndex, false);
-						break;
-					case Month:
-						takeMonth(keyField, field, line, startFieldIndex, endFieldIndex);
-						break;
-					case Random:
-						takeRandom(keyField, field, line, startFieldIndex, endFieldIndex);
-						break;
-					case Version:
-						takeVersion(keyField, field, line, startFieldIndex, endFieldIndex);
-						break;
-					default:
-						throw new IllegalStateException("Unknown SortKind");
+					startFieldIndex = Math.min(startFieldLimit, startFieldIndex + ((keyField.startChar > 0)? keyField.startChar - 1: 0));
+					/*
+					// up to version 1.0.2
+					if(keyField.endChar == 0) {
+						endFieldIndex = endFieldLimit;
+					} else {
+						if(keyField.skipEndBlanks) {
+							for(; endFieldIndex < (Sort.GNU_SORT_COMPATIBLE? line.length(): endFieldLimit) && Character.isWhitespace(line.charAt(endFieldIndex)); endFieldIndex++) {
+								// Nothing to do
+							}
+						}
+						endFieldIndex = Math.min(endFieldLimit, endFieldIndex + keyField.endChar);
 					}
-				} catch(Exception e) {
-					throw new RuntimeException("file: " + fileNumber + " line: " + lineNumber + " key[" + i +  "] , " + keyFields[i].sortKind + ": " + e, e);
+					// end of up to version 1.0.2
+					*/
+					// version 1.1.0
+					if(keyField.endChar != 0) {
+						endFieldLimit = Math.min(endFieldLimit, endFieldIndex + keyField.endChar);
+					}
+					if(keyField.skipEndBlanks) {
+						for(; endFieldLimit > endFieldIndex && Character.isWhitespace(line.charAt(endFieldLimit - 1)); endFieldLimit--) {
+							// Nothing to do
+						}
+					}
+					endFieldIndex = endFieldLimit;
+					if(endFieldIndex < startFieldIndex) {
+						endFieldIndex = startFieldIndex;
+					}
+					// end of version 1.1.0
+					if(debug) {
+						System.out.println("file: " + fileNumber + " line: " + lineNumber + " key[" + i +  "] , " + keyFields[i].sortKind + "(" + startFieldIndex + ", " + endFieldIndex + "): \"" + line.substring(startFieldIndex, endFieldIndex) + "\"");
+					}
+					try {
+						switch(keyFields[i].sortKind) {
+						case Text:
+							field.start = (short)startFieldIndex;
+							field.limit = (short)endFieldIndex;
+							field.text = null;
+							break;
+						case GeneralNumeric:
+							takeGeneralNumeric(keyField, field, line, startFieldIndex, endFieldIndex, true);
+							break;
+						case HumanNumeric:
+							takeNumeric(keyField, field, line, startFieldIndex, endFieldIndex, true);
+							break;
+						case Numeric:
+							takeNumeric(keyField, field, line, startFieldIndex, endFieldIndex, false);
+							break;
+						case Month:
+							takeMonth(keyField, field, line, startFieldIndex, endFieldIndex);
+							break;
+						case Random:
+							takeRandom(keyField, field, line, startFieldIndex, endFieldIndex);
+							break;
+						case Version:
+							takeVersion(keyField, field, line, startFieldIndex, endFieldIndex);
+							break;
+						default:
+							throw new IllegalStateException("Unknown SortKind");
+						}
+					} catch(Exception e) {
+						throw new RuntimeException("file: " + fileNumber + " line: " + lineNumber + " key[" + i +  "] , " + keyFields[i].sortKind + ": " + e, e);
+					}
 				}
 			}
 		}
